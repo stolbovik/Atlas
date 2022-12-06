@@ -72,5 +72,23 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>io.qameta.atlas</groupId>
+      <artifactId>atlas-core</artifactId>
+      <version>1.8.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.qameta.atlas</groupId>
+      <artifactId>atlas-webdriver</artifactId>
+      <version>1.8.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.qameta.atlas</groupId>
+      <artifactId>atlas-appium</artifactId>
+      <version>1.8.0</version>
+    </dependency>
+
   </dependencies>
 </project>
