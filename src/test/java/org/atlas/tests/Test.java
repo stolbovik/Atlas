@@ -1,5 +1,6 @@
-package org.atlas.Tests;
+package org.atlas.tests;
 
+import org.atlas.tests.config.BaseTest;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 
@@ -8,6 +9,6 @@ public class Test extends BaseTest {
   @Tag("development")
   @org.junit.jupiter.api.Test
   public void someTest() {
-
+    site.onUserPage().goToBookmarks();
   }
 }

@@ -1,4 +1,4 @@
-package org.atlas.Config;
+package org.atlas.tests.config;
 
 import io.qameta.atlas.core.Atlas;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;

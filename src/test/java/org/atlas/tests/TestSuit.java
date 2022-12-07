@@ -1,4 +1,4 @@
-package org.atlas.Tests;
+package org.atlas.tests;
 
 import org.junit.platform.suite.api.IncludeTags;
 import org.junit.platform.suite.api.SelectPackages;
