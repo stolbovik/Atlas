@@ -15,7 +15,8 @@ abstract public class BaseTest {
 
   @BeforeAll
   public static void setUp() {
-    atlas = new AtlasWrapper(new WebDriverConfiguration(WebDriverManager.edgedriver().getWebDriver()));
+    EdgeDriver edgeDriver = new EdgeDriver();
+    atlas = new AtlasWrapper(new WebDriverConfiguration(edgeDriver), edgeDriver);
     WebDriverManager.edgedriver().setup();
     Configuration.browser = "edge";
     Configuration.driverManagerEnabled = true;
