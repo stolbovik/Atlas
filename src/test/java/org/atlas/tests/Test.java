@@ -1,6 +1,6 @@
 package org.atlas.tests;
 
-import org.atlas.tests.config.BaseTest;
+import org.atlas.pages.LoginPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 
@@ -9,6 +9,9 @@ public class Test extends BaseTest {
   @Tag("development")
   @org.junit.jupiter.api.Test
   public void someTest() {
-    site.onUserPage().goToBookmarks();
+    LoginPage loginPage = site.onLoginPage();
+    loginPage.input("st.email").sendKeys("technoPol4");
+    loginPage.input("st.password").sendKeys("technoPolis2022");
+    loginPage.button("login-form-actions").click();
   }
 }
