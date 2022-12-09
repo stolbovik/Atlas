@@ -1,4 +1,4 @@
-package org.atlas.pages;
+package org.atlas.pagesFiles.pages;
 
 import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.WebPage;
@@ -7,10 +7,13 @@ import io.qameta.atlas.webdriver.extension.Param;
 
 public interface LoginPage extends WebPage {
 
-    @FindBy("//*[@name='{{ text }}']")
+    String TO_INPUT = "//*[@name='{{ text }}']";
+    String TO_BUTTON = "//*[@class='{{ text }}']/input";
+
+    @FindBy(TO_INPUT)
     AtlasWebElement input(@Param("text") String text);
 
-    @FindBy("//*[@class='{{ text }}']/input")
+    @FindBy(TO_BUTTON)
     AtlasWebElement button(@Param("text") String text);
 
 }
