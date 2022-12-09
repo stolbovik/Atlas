@@ -24,7 +24,7 @@ abstract public class BaseTest {
 
   @AfterAll
   public static void end() {
-    driver.close();
+    driver.quit();
   }
 
 }
