@@ -1,11 +1,12 @@
 package org.atlas.tests;
 
+import org.atlas.pagesFiles.pages.LentaPage;
 import org.atlas.pagesFiles.pages.LoginPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-public class TestEx extends BaseTest {
+public class VideoToBookmarkTest extends BaseTest {
   @DisplayName("Тест")
   @Tag("bookmark")
   @Test
@@ -14,5 +15,7 @@ public class TestEx extends BaseTest {
     loginPage.input("st.email").sendKeys("technoPol4");
     loginPage.input("st.password").sendKeys("technoPolis2022");
     loginPage.button("login-form-actions").click();
+    LentaPage lentaPage = site.onLentaPage();
+
   }
 }
