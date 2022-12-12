@@ -5,10 +5,11 @@ import io.qameta.atlas.webdriver.extension.FindBy;
 import io.qameta.atlas.webdriver.extension.Param;
 
 @SuppressWarnings("rawtypes")
-public interface Toolbar extends AtlasWebElement {
-  String TO_ACTION_LINK = "//ul[@class='toolbar_nav']//a[@aria-label='{{ data }}']";
+public interface BookmarksMenuPanel extends AtlasWebElement {
 
-  @FindBy(TO_ACTION_LINK)
-  AtlasWebElement actionLink(@Param("data") String data);
+    String TO_BOOKMARKS = "//a[@href='/bookmarks/{{ data }}']";
+
+    @FindBy(TO_BOOKMARKS)
+    AtlasWebElement bookmarks(@Param("data") String data);
 
 }

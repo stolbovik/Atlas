@@ -1,6 +1,7 @@
-package org.atlas.pagesFiles.pageElements;
+package org.atlas.pagesFiles.withElements;
 
 import io.qameta.atlas.webdriver.extension.FindBy;
+import org.atlas.pagesFiles.pageElements.Toolbar;
 
 public interface WithToolbar {
 
