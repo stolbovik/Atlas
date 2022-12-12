@@ -5,7 +5,7 @@ import org.atlas.PagesFiles.WithElements.WithNavigation;
 import org.atlas.PagesFiles.WithElements.WithThirdMenuSection;
 import org.atlas.PagesFiles.WithElements.WithToolbar;
 
-public interface LentaPage extends WebPage, WithToolbar, WithNavigation, WithThirdMenuSection {
+public interface FeedPage extends WebPage, WithToolbar, WithNavigation, WithThirdMenuSection {
 
 
 

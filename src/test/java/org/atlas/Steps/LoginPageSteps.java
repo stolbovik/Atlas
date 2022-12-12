@@ -11,7 +11,6 @@ public class LoginPageSteps {
     private final String EMAIL_INPUT = "st.email";
     private final String PASSWORD_INPUT = "st.password";
     private final String SIGN_IN_BUTTON = "login-form-actions";
-    private final String VIDEO = "Видео";
     private final LoginPage loginPage;
 
     public LoginPageSteps(BaseTest test) {
@@ -27,8 +26,4 @@ public class LoginPageSteps {
         return this;
     }
 
-    public LoginPageSteps goToVideo() {
-        TEST.getSite().onLentaPage().toolbar().actionLink(VIDEO).click();
-        return this;
-    }
 }
