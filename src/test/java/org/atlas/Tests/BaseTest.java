@@ -11,6 +11,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BaseTest {
   static final private String LOGIN_URL = "https://ok.ru/";
@@ -19,6 +22,7 @@ public class BaseTest {
   static protected OkSite site;
   static protected WebDriver driver;
   static protected TestBot testBot;
+  static protected WebDriverWait webDriverWait;
   @BeforeAll
   public static void setUp() {
     WebDriverManager.edgedriver().setup();
@@ -26,6 +30,7 @@ public class BaseTest {
     site = new Atlas(new WebDriverConfiguration(driver, LOGIN_URL))
       .create(driver, OkSite.class);
     testBot = new TestBot(TEST_BOT_LOGIN, TEST_BOT_PASSWORD);
+    webDriverWait = new WebDriverWait(driver, 5);
   }
 
   @BeforeEach
@@ -46,6 +51,7 @@ public class BaseTest {
     return site;
   }
   public WebDriver getDriver() { return driver;}
+  public WebDriverWait getWebDriverWait() { return webDriverWait; }
 
 }
 

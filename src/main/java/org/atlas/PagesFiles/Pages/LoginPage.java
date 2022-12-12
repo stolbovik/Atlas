@@ -17,18 +17,5 @@ public interface LoginPage extends WebPage {
     @FindBy(TO_BUTTON)
     AtlasWebElement button(@Param("text") String text);
 
-    default LoginPage typeLogin(String login) {
-        input("st.email").sendKeys(login);
-        return this;
-    }
-
-    default LoginPage typePassword(String password) {
-        input("st.password").sendKeys(password);
-        return this;
-    }
-
-    default void signIn() {
-        button("login-form-actions").click();
-    }
 
 }

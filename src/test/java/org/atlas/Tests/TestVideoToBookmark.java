@@ -31,4 +31,5 @@ public class TestVideoToBookmark extends BaseTest {
     }
     Assertions.assertEquals(href, href2, "Не удалось добавить видео в закладки");
   }
+  
 }

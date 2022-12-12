@@ -1,8 +1,11 @@
 package org.atlas.Steps;
 
+import io.qameta.atlas.webdriver.AtlasWebElement;
 import org.atlas.PagesFiles.Pages.LoginPage;
 import org.atlas.Resources.TestBot;
 import org.atlas.Tests.BaseTest;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPageSteps {
 
@@ -20,7 +23,7 @@ public class LoginPageSteps {
 
     public LoginPageSteps loginIn(TestBot testBot) {
         this.testBot = testBot;
-        loginPage.input(EMAIL_INPUT). sendKeys(this.testBot.getLogin());
+        loginPage.input(EMAIL_INPUT).sendKeys(this.testBot.getLogin());
         loginPage.input(PASSWORD_INPUT).sendKeys(this.testBot.getPassword());
         loginPage.button(SIGN_IN_BUTTON).click();
         return this;
