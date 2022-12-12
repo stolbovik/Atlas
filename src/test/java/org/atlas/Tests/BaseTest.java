@@ -13,8 +13,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
 public class BaseTest {
   static final private String LOGIN_URL = "https://ok.ru/";
   static final private String TEST_BOT_LOGIN = "technoPol4";
@@ -37,6 +35,7 @@ public class BaseTest {
   public void toLogin() {
     driver.get(LOGIN_URL);
   }
+
   @AfterEach
   public void closeSite() {
     driver.close();
@@ -50,8 +49,12 @@ public class BaseTest {
   public OkSite getSite() {
     return site;
   }
-  public WebDriver getDriver() { return driver;}
-  public WebDriverWait getWebDriverWait() { return webDriverWait; }
+  public WebDriver getDriver() {
+    return driver;
+  }
+  public WebDriverWait getWebDriverWait() {
+    return webDriverWait;
+  }
 
 }
 

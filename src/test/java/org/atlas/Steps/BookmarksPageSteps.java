@@ -19,7 +19,8 @@ public class BookmarksPageSteps {
         return this;
     }
 
-    public String getHrefFirstVideo() {
-        return bookmarksPage.videos().firstVideo().getAttribute("href");
+    public BookmarksPageSteps getHrefFirstVideo(StringBuilder href) {
+        href.append(bookmarksPage.videos().firstVideo().getAttribute("href"));
+        return this;
     }
 }

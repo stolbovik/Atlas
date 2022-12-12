@@ -15,9 +15,9 @@ public class FeedPageSteps {
         this.feedPage = TEST.getSite().onFeedPage();
     }
 
-    public FeedPageSteps goToVideo() {
+    public VideoPageSteps goToVideo() {
         feedPage.toolbar().actionLink(VIDEO).click();
-        return this;
+        return new VideoPageSteps(TEST);
     }
 
 }
