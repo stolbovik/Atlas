@@ -1,11 +1,11 @@
-package org.atlas.pagesFiles.pageElements;
+package org.atlas.PagesFiles.PageElements;
 
 import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.extension.FindBy;
 import io.qameta.atlas.webdriver.extension.Param;
 
 @SuppressWarnings("rawtypes")
-public interface Navigation extends AtlasWebElement {
+public interface ThirdMenuSection extends AtlasWebElement {
 
     String TO_ACTION_LINK = "//a[@href='{{ data }}']";
 

@@ -1,8 +1,7 @@
-package org.atlas.pagesFiles.withElements;
+package org.atlas.PagesFiles.WithElements;
 
 import io.qameta.atlas.webdriver.extension.FindBy;
-import org.atlas.pagesFiles.pageElements.BookmarksVideoList;
-import org.atlas.pagesFiles.pageElements.Navigation;
+import org.atlas.PagesFiles.PageElements.BookmarksVideoList;
 
 public interface WithBookmarksVideoList {
 

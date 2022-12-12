@@ -1,11 +1,11 @@
-package org.atlas.pagesFiles.sites;
+package org.atlas.PagesFiles.Sites;
 
 import io.qameta.atlas.webdriver.WebSite;
 import io.qameta.atlas.webdriver.extension.Page;
-import org.atlas.pagesFiles.pages.BookmarksPage;
-import org.atlas.pagesFiles.pages.LoginPage;
-import org.atlas.pagesFiles.pages.LentaPage;
-import org.atlas.pagesFiles.pages.VideoPage;
+import org.atlas.PagesFiles.Pages.BookmarksPage;
+import org.atlas.PagesFiles.Pages.LoginPage;
+import org.atlas.PagesFiles.Pages.LentaPage;
+import org.atlas.PagesFiles.Pages.VideoPage;
 
 public interface OkSite extends WebSite {
   @Page

@@ -1,7 +1,7 @@
-package org.atlas.pagesFiles.withElements;
+package org.atlas.PagesFiles.WithElements;
 
 import io.qameta.atlas.webdriver.extension.FindBy;
-import org.atlas.pagesFiles.pageElements.BookmarksMenuPanel;
+import org.atlas.PagesFiles.PageElements.BookmarksMenuPanel;
 
 public interface WithBookmarksMenuPanel {
 
