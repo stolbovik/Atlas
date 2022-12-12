@@ -29,4 +29,8 @@ public class VideoPageSteps {
         return this;
     }
 
+    public String getHrefFirstVideo() {
+        return videoPage.videoTopList().firstVideo().getAttribute("href");
+    }
+
 }

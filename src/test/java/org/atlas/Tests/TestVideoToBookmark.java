@@ -23,7 +23,7 @@ public class TestVideoToBookmark extends BaseTest {
   public void doTest() {
     loginSteps.loginIn(testBot);
     feedPageSteps.goToVideo();
-    String href = site.onVideoPage().videoTopList().firstVideo().getAttribute("href");
+    String href = videoPageSteps.getHrefFirstVideo();
     videoPageSteps.addVideoToBookmark().goToBookmarks();
     String href2 = bookmarksPageSteps.goToVideoBookmarks().getHrefFirstVideo();
     if (href2.contains("live")) {

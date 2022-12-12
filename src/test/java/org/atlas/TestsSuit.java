@@ -7,7 +7,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 
 @IncludeTags({"video_bookmark"})
 @Suite
-@SelectPackages({"org.atlas.tests"})
+@SelectPackages({"org.atlas.Tests"})
 @SuiteDisplayName("Тест раздела 'Закладки'")
 public class TestsSuit {
 
