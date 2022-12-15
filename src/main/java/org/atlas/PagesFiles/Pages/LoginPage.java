@@ -17,5 +17,4 @@ public interface LoginPage extends WebPage {
     @FindBy(TO_BUTTON)
     AtlasWebElement button(@Param("text") String text);
 
-
 }
