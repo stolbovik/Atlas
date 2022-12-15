@@ -8,6 +8,7 @@ import org.atlas.pagesFiles.pages.UserPage;
 public interface BaseSite extends WebSite {
   @Page
   UserPage onUserPage();
+
   @Page
   LoginPage onLoginPage();
 
