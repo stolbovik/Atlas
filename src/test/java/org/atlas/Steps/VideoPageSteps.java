@@ -9,7 +9,7 @@ public class VideoPageSteps {
 
     private final BaseTest TEST;
     private final VideoPage videoPage;
-    private static VideoPageSteps instance;
+/*    private static VideoPageSteps instance;*/
 
     public VideoPageSteps(BaseTest test) {
         this.TEST = test;

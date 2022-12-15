@@ -10,9 +10,6 @@ import org.junit.jupiter.api.Test;
 public class TestVideoToBookmark extends BaseTest {
 
   private final LoginPageSteps loginSteps = new LoginPageSteps(this);
-/*  private final VideoPageSteps videoPageSteps = new VideoPageSteps(this);
-  private final BookmarksPageSteps bookmarksPageSteps = new BookmarksPageSteps(this);
-  private final FeedPageSteps feedPageSteps = new FeedPageSteps(this);*/
 
   @DisplayName("Добавление видео в заклади")
   @Tag("video_bookmark")
@@ -28,9 +25,7 @@ public class TestVideoToBookmark extends BaseTest {
               .goToVideoBookmarks()
               .getHrefFirstVideo(href2);
     if (href2.toString().contains("live")) {
-      String temp = href2.toString();
-      temp = temp.replace("live", "video");
-      href2 = new StringBuilder(temp);
+      href2 = new StringBuilder(href2.toString().replace("live", "video"));
     }
     Assertions.assertEquals(href.toString(), href2.toString(), "Не удалось добавить видео в закладки");
   }
