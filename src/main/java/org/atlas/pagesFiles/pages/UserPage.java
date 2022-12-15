@@ -9,6 +9,7 @@ import org.atlas.pagesFiles.pageElements.WithToolbar;
 public interface UserPage extends WebPage, WithToolbar {
 
   String TO_BOOKMARK = ".//div[contains[@data-l='outlandertarget,bookmarks,t,bookmarks']]";
+
   @FindBy(TO_BOOKMARK)
   AtlasWebElement goToBookmarks();
 }
