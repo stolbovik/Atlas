@@ -1,7 +1,6 @@
 package org.atlas.Tests;
 
 import org.atlas.Steps.LoginPageSteps;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -18,6 +17,8 @@ public class TestGroupToBookmark extends BaseTest {
   public void doTest() {
     loginSteps.loginIn(testBot)
       .goToGroups()
-      .chooseGroup(GROUP_NAME);
+      .chooseGroup(GROUP_NAME)
+      .addBookmark()
+      .goToBookmarks();
   }
 }

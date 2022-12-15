@@ -22,6 +22,6 @@ public interface OkSite extends WebSite {
   @Page(url = "/profile/{data}/groups")
   UserGroupsPage onGroupsPage(@Path("data") String data);
 
-  @Page(url = "/profile")
+  @Page(url = "/ok")
   GroupPage onGroupPage();
 }

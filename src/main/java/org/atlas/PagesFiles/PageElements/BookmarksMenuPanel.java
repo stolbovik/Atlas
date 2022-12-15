@@ -8,6 +8,7 @@ import io.qameta.atlas.webdriver.extension.Param;
 public interface BookmarksMenuPanel extends AtlasWebElement {
 
     String TO_BOOKMARKS = "//a[@href='/bookmarks/{{ data }}']";
+    //String TO_BOOKMARKS = "//div[@class='nav-side_i-w']//*[contains(text(), '{{data}}')]/../..";
 
     @FindBy(TO_BOOKMARKS)
     AtlasWebElement bookmarks(@Param("data") String data);
