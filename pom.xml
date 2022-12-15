@@ -90,12 +90,6 @@
     </dependency>
 
     <dependency>
-      <groupId>io.qameta.atlas</groupId>
-      <artifactId>atlas-appium</artifactId>
-      <version>1.8.0</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.junit.platform</groupId>
       <artifactId>junit-platform-suite</artifactId>
       <version>1.9.1</version>

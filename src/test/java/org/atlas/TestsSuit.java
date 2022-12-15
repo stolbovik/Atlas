@@ -5,10 +5,10 @@ import org.junit.platform.suite.api.SelectPackages;
 import org.junit.platform.suite.api.Suite;
 import org.junit.platform.suite.api.SuiteDisplayName;
 
-@IncludeTags({"bookmark"})
+@IncludeTags({"video_bookmark"})
 @Suite
-@SelectPackages({"org.atlas.tests"})
-@SuiteDisplayName("All Tests Suite")
+@SelectPackages({"org.atlas.Tests"})
+@SuiteDisplayName("Тест раздела 'Закладки'")
 public class TestsSuit {
 
 }

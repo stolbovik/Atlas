@@ -1,0 +1,14 @@
+package org.atlas.PagesFiles.PageElements;
+
+import io.qameta.atlas.webdriver.AtlasWebElement;
+import io.qameta.atlas.webdriver.extension.FindBy;
+
+@SuppressWarnings("rawtypes")
+public interface BookmarksVideoList extends AtlasWebElement {
+
+    String TO_FIRST_VIDEO = "//a[@class='video-card_lk']";
+
+    @FindBy(TO_FIRST_VIDEO)
+    Video firstVideo();
+
+}
