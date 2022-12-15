@@ -1,9 +1,14 @@
 package org.atlas.Tests;
 
+import org.atlas.Steps.BookmarksPageSteps;
 import org.atlas.Steps.LoginPageSteps;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 
 @DisplayName("Тест для добавления группы в закладки")
 public class TestGroupToBookmark extends BaseTest {
@@ -15,10 +20,19 @@ public class TestGroupToBookmark extends BaseTest {
   @Tag("group_bookmark")
   @Test
   public void doTest() {
-    loginSteps.loginIn(testBot)
+    StringBuilder addedGroupName = new StringBuilder();
+    BookmarksPageSteps bookmarksPageSteps = loginSteps.loginIn(testBot)
       .goToGroups()
       .chooseGroup(GROUP_NAME)
-      .addBookmark()
-      .goToBookmarks();
+      .addGroupToBookmark()
+      .goToBookmarks()
+      .goToGroupsBookmarks()
+      .getLastGroupName(addedGroupName);
+
+    assertThat(addedGroupName.substring(1, addedGroupName.length() - 1),
+      equalTo(GROUP_NAME.substring(1, GROUP_NAME.length() - 1)));
+
+    bookmarksPageSteps.goToGroupPageFromBookmarks()
+      .deleteGroupFromBookmark();
   }
 }

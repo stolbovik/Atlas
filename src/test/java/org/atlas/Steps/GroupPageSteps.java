@@ -13,9 +13,15 @@ public class GroupPageSteps {
     this.groupPage = TEST.getSite().onGroupPage();
   }
 
-  public GroupPageSteps addBookmark() {
+  public GroupPageSteps addGroupToBookmark() {
     groupPage.groupMainPanel().getOtherActions().click();
     groupPage.groupMainPanel().addBookmark().click();
+    return this;
+  }
+
+  public GroupPageSteps deleteGroupFromBookmark() {
+    groupPage.groupMainPanel().getOtherActions().click();
+    groupPage.groupMainPanel().deleteBookmark().click();
     return this;
   }
 
@@ -23,5 +29,4 @@ public class GroupPageSteps {
     groupPage.thirdMenuSection().actionLink("/bookmarks").click();
     return new BookmarksPageSteps(TEST);
   }
-
 }

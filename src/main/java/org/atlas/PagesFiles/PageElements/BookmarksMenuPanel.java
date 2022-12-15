@@ -7,10 +7,9 @@ import io.qameta.atlas.webdriver.extension.Param;
 @SuppressWarnings("rawtypes")
 public interface BookmarksMenuPanel extends AtlasWebElement {
 
-    String TO_BOOKMARKS = "//a[@href='/bookmarks/{{ data }}']";
-    //String TO_BOOKMARKS = "//div[@class='nav-side_i-w']//*[contains(text(), '{{data}}')]/../..";
+  String TO_BOOKMARKS = "//a[@href='/bookmarks/{{ data }}']";
 
-    @FindBy(TO_BOOKMARKS)
-    AtlasWebElement bookmarks(@Param("data") String data);
+  @FindBy(TO_BOOKMARKS)
+  AtlasWebElement bookmarks(@Param("data") String data);
 
 }

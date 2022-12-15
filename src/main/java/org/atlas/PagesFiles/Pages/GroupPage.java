@@ -6,7 +6,10 @@ import org.atlas.PagesFiles.WithElements.WithNavigation;
 import org.atlas.PagesFiles.WithElements.WithThirdMenuSection;
 import org.atlas.PagesFiles.WithElements.WithToolbar;
 
-public interface GroupPage extends WebPage, WithToolbar, WithNavigation,
-  WithThirdMenuSection, WithGroupMainPanel {
+public interface GroupPage extends WebPage,
+  WithToolbar,
+  WithNavigation,
+  WithThirdMenuSection,
+  WithGroupMainPanel {
 
 }
