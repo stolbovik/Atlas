@@ -7,10 +7,8 @@ import io.qameta.atlas.webdriver.extension.Param;
 @SuppressWarnings("rawtypes")
 public interface Navigation extends AtlasWebElement {
 
-    String TO_ACTION_LINK = "//a[@href='{{ data }}']";
+    String TO_ACTION_LINK = "//div[@class='nav-side_i-w']/a[@aria-label='{{ text }}']";
 
     @FindBy(TO_ACTION_LINK)
-    AtlasWebElement actionLink(@Param("data") String data);
-
-
+    AtlasWebElement goToSection(@Param("text") String text);
 }
