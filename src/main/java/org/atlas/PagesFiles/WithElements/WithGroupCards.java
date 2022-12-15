@@ -2,7 +2,6 @@ package org.atlas.PagesFiles.WithElements;
 
 import io.qameta.atlas.webdriver.extension.FindBy;
 import org.atlas.PagesFiles.PageElements.GroupCard;
-import org.atlas.PagesFiles.PageElements.UserGroupsToolbar;
 
 public interface WithGroupCards {
 

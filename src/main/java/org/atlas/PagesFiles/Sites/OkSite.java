@@ -2,7 +2,6 @@ package org.atlas.PagesFiles.Sites;
 
 import io.qameta.atlas.webdriver.WebSite;
 import io.qameta.atlas.webdriver.extension.Page;
-import io.qameta.atlas.webdriver.extension.Param;
 import io.qameta.atlas.webdriver.extension.Path;
 import org.atlas.PagesFiles.Pages.*;
 
