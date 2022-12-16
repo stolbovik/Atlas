@@ -2,10 +2,7 @@ package org.atlas.Tests;
 
 import org.atlas.Steps.BookmarksPageSteps;
 import org.atlas.Steps.LoginPageSteps;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
