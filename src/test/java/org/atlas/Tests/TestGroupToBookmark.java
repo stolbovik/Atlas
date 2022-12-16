@@ -3,7 +3,6 @@ package org.atlas.Tests;
 import org.atlas.Steps.BookmarksPageSteps;
 import org.atlas.Steps.LoginPageSteps;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +28,7 @@ public class TestGroupToBookmark extends BaseTest {
       .goToGroupsBookmarks()
       .getLastGroupName(addedGroupName);
 
-    assertThat(addedGroupName.substring(1, addedGroupName.length() - 1),
+    assertThat("Не удалось добавить группу в закладки", addedGroupName.substring(1, addedGroupName.length() - 1),
       equalTo(GROUP_NAME.substring(1, GROUP_NAME.length() - 1)));
 
     bookmarksPageSteps.goToGroupPageFromBookmarks()

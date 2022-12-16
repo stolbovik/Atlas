@@ -19,4 +19,9 @@ public class TestBot {
   public String getPassword() {
     return this.PASSWORD;
   }
+
+  public String getID() {
+    return this.ID;
+  }
+
 }
