@@ -17,6 +17,7 @@ public class BaseTest {
   static final private String LOGIN_URL = "https://ok.ru/";
   static final private String TEST_BOT_LOGIN = "technoPol4";
   static final private String TEST_BOT_PASSWORD = "technoPolis2022";
+  static final private String TEST_BOT_ID = "585556286938";
   static protected OkSite site;
   static protected WebDriver driver;
   static protected TestBot testBot;
@@ -27,7 +28,7 @@ public class BaseTest {
     driver = new EdgeDriver();
     site = new Atlas(new WebDriverConfiguration(driver, LOGIN_URL))
       .create(driver, OkSite.class);
-    testBot = new TestBot(TEST_BOT_LOGIN, TEST_BOT_PASSWORD);
+    testBot = new TestBot(TEST_BOT_LOGIN, TEST_BOT_PASSWORD, TEST_BOT_ID);
     webDriverWait = new WebDriverWait(driver, 5);
   }
 
@@ -49,9 +50,15 @@ public class BaseTest {
   public OkSite getSite() {
     return site;
   }
+
+  public String getUserId() {
+    return TEST_BOT_ID;
+  }
+
   public WebDriver getDriver() {
     return driver;
   }
+
   public WebDriverWait getWebDriverWait() {
     return webDriverWait;
   }

@@ -11,7 +11,7 @@ public class TestVideoToBookmark extends BaseTest {
 
   private final LoginPageSteps loginSteps = new LoginPageSteps(this);
 
-  @DisplayName("Добавление видео в заклади")
+  @DisplayName("Добавление видео в закладки")
   @Tag("video_bookmark")
   @Test
   public void doTest() {
