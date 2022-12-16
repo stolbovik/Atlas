@@ -1,7 +1,7 @@
 package org.atlas.PagesFiles.WithElements;
 
 import io.qameta.atlas.webdriver.extension.FindBy;
-import org.atlas.PagesFiles.PageElements.GroupCard;
+import org.atlas.PagesFiles.Pages.Elements.Group.GroupCard;
 
 public interface WithGroupCards {
 

@@ -1,7 +1,7 @@
 package org.atlas.PagesFiles.WithElements;
 
 import io.qameta.atlas.webdriver.extension.FindBy;
-import org.atlas.PagesFiles.PageElements.Navigation;
+import org.atlas.PagesFiles.Pages.Elements.Navigation;
 
 public interface WithNavigation {
 

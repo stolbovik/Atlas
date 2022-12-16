@@ -1,6 +1,6 @@
 package org.atlas.Steps;
 
-import org.atlas.PagesFiles.PageElements.Video;
+import org.atlas.PagesFiles.Pages.Elements.Video.Video;
 import org.atlas.PagesFiles.Pages.VideoPage;
 import org.atlas.Tests.BaseTest;
 import org.openqa.selenium.interactions.Actions;
