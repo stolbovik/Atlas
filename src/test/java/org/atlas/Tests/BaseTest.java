@@ -1,17 +1,19 @@
 package org.atlas.Tests;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.atlas.core.Atlas;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
-import org.atlas.Resources.TestBot;
+import org.atlas.GuiceModule;
 import org.atlas.PagesFiles.Sites.OkSite;
+import org.atlas.Resources.TestBot;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseTest {
   static final private String LOGIN_URL = "https://ok.ru/";
@@ -21,6 +23,8 @@ public class BaseTest {
   static protected OkSite site;
   static protected WebDriver driver;
   static protected TestBot testBot;
+  final private Injector injector = Guice.createInjector(new GuiceModule(this));
+
   @BeforeAll
   public static void setUp() {
     WebDriverManager.edgedriver().setup();
@@ -32,6 +36,7 @@ public class BaseTest {
 
   @BeforeEach
   public void toLogin() {
+    injector.injectMembers(this);
     driver.get(LOGIN_URL);
   }
 

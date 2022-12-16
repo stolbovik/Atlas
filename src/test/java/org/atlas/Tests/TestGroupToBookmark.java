@@ -1,5 +1,6 @@
 package org.atlas.Tests;
 
+import com.google.inject.Inject;
 import org.atlas.Steps.BookmarksPageSteps;
 import org.atlas.Steps.LoginPageSteps;
 import org.junit.jupiter.api.DisplayName;
@@ -11,8 +12,10 @@ import static org.hamcrest.Matchers.equalTo;
 
 @DisplayName("Тест для добавления группы в закладки")
 public class TestGroupToBookmark extends BaseTest {
-
-  private final LoginPageSteps loginSteps = new LoginPageSteps(this);
+  @Inject
+  private LoginPageSteps loginSteps;
+  @Inject
+  private BookmarksPageSteps bookmarksPageSteps;
   private final String GROUP_NAME = "Одноклассники. Всё ОК!";
 
   @DisplayName("Добавление группы в закладки")
@@ -20,7 +23,7 @@ public class TestGroupToBookmark extends BaseTest {
   @Test
   public void doTest() {
     StringBuilder addedGroupName = new StringBuilder();
-    BookmarksPageSteps bookmarksPageSteps = loginSteps.loginIn(testBot)
+    bookmarksPageSteps = loginSteps.loginIn(testBot)
       .goToGroups()
       .chooseGroup(GROUP_NAME)
       .addGroupToBookmark()
