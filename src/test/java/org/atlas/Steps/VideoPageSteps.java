@@ -9,19 +9,11 @@ public class VideoPageSteps {
 
     private final BaseTest TEST;
     private final VideoPage videoPage;
-/*    private static VideoPageSteps instance;*/
 
     public VideoPageSteps(BaseTest test) {
         this.TEST = test;
         this.videoPage = TEST.getSite().onVideoPage();
     }
-
-/*    public static VideoPageSteps instanceVideoPageSteps(BaseTest test) {
-        if (instance == null) {
-            instance = new VideoPageSteps(test);
-        }
-        return instance;
-    }*/
 
     public VideoPageSteps addVideoToBookmark() {
         Video video = videoPage.videoTopList().firstVideo();

@@ -1,7 +1,7 @@
 package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.BookmarksPage;
-import org.atlas.PagesFiles.Pages.GroupPage;
+import org.atlas.PagesFiles.Pages.Elements.Video.Video;
 import org.atlas.Tests.BaseTest;
 
 public class BookmarksPageSteps {
@@ -23,6 +23,12 @@ public class BookmarksPageSteps {
 
   public BookmarksPageSteps getHrefFirstVideo(StringBuilder href) {
     href.append(bookmarksPage.videos().firstVideo().getAttribute("href"));
+    return this;
+  }
+
+  public BookmarksPageSteps deleteFirstVideoFromBookmark() {
+    bookmarksPage.videos().firstVideo().click();
+    bookmarksPage.toMediaPlayer().toButtonDeleteFromBookmark().click();
     return this;
   }
 

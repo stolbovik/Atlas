@@ -14,4 +14,5 @@ public interface Video extends AtlasWebElement {
 
     @FindBy(TO_BUTTON_FOR_ADD_TO_BOOKMARK)
     AtlasWebElement buttonForAddToBookmark();
+
 }
