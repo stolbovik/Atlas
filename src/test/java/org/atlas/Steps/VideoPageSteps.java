@@ -3,6 +3,8 @@ package org.atlas.Steps;
 import org.atlas.PagesFiles.Pages.Elements.Video.Video;
 import org.atlas.PagesFiles.Pages.VideoPage;
 import org.atlas.Tests.BaseTest;
+import org.hamcrest.Matcher;
+import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.interactions.Actions;
 
 public class VideoPageSteps {
