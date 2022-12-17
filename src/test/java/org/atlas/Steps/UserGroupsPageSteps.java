@@ -18,7 +18,6 @@ public class UserGroupsPageSteps {
     for (int i = 0; i < name.length(); i++) {
       groupsPage.groupsToolbar().searchField().sendKeys(String.valueOf(name.charAt(i)));
     }
-    groupsPage.groupsToolbar().searchField().sendKeys(name + Keys.ENTER);
     groupsPage.groupsToolbar().searchField().sendKeys(Keys.ENTER);
     groupsPage.groupCards().goToGroup(name).click();
     return new GroupPageSteps(TEST);
