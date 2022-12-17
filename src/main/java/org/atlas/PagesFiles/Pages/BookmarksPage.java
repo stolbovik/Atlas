@@ -8,6 +8,7 @@ public interface BookmarksPage extends WebPage,
   WithBookmarksMenuPanel,
   WithBookmarksVideoList,
   WithBookmarksGroupsList,
+  WithBookmarksPostsList,
   WithMediaPlayer {
 
 }

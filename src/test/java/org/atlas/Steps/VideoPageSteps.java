@@ -15,7 +15,7 @@ public class VideoPageSteps {
         this.videoPage = TEST.getSite().onVideoPage();
     }
 
-    public VideoPageSteps addVideoToBookmark() {
+    public VideoPageSteps addFirstVideoToBookmark() {
         Video video = videoPage.videoTopList().firstVideo();
         Actions action = new Actions(TEST.getDriver());
         action.moveToElement(video).perform();

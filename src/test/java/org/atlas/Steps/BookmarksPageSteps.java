@@ -1,7 +1,6 @@
 package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.BookmarksPage;
-import org.atlas.PagesFiles.Pages.Elements.Video.Video;
 import org.atlas.Tests.BaseTest;
 
 public class BookmarksPageSteps {
@@ -10,6 +9,7 @@ public class BookmarksPageSteps {
   private final BookmarksPage bookmarksPage;
   private final String MOVIES = "movies";
   private final String GROUPS = "groups";
+  private final String TOPICS = "topics";
 
   public BookmarksPageSteps(BaseTest test) {
     this.TEST = test;
@@ -45,5 +45,15 @@ public class BookmarksPageSteps {
   public GroupPageSteps goToGroupPageFromBookmarks() {
     bookmarksPage.groups().firstGroup().getName().click();
     return new GroupPageSteps(TEST);
+  }
+
+  public BookmarksPageSteps goToPostBookmarks() {
+    bookmarksPage.bookmarksMenuPanel().bookmarks(TOPICS).click();
+    return this;
+  }
+
+  public BookmarksPageSteps getIdOfFirstPost(StringBuilder href) {
+    href.append(bookmarksPage.posts().firstPost().postBody().getAttribute("data-l"));
+    return this;
   }
 }
