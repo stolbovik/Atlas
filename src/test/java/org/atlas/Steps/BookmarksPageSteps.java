@@ -28,7 +28,7 @@ public class BookmarksPageSteps {
 
   public BookmarksPageSteps deleteFirstVideoFromBookmark() {
     bookmarksPage.videos().firstVideo().click();
-    bookmarksPage.toMediaPlayer().toButtonDeleteFromBookmark().click();
+    bookmarksPage.mediaPlayer().buttonDeleteFromBookmark().click();
     return this;
   }
 
@@ -54,6 +54,12 @@ public class BookmarksPageSteps {
 
   public BookmarksPageSteps getIdOfFirstPost(StringBuilder href) {
     href.append(bookmarksPage.posts().firstPost().postBody().getAttribute("data-l"));
+    return this;
+  }
+
+  public BookmarksPageSteps deleteFirstPostFromBookmark() {
+    bookmarksPage.posts().firstPost().postBody().click();
+    bookmarksPage.postTopic().buttonForDeleteBookmark().click();
     return this;
   }
 }

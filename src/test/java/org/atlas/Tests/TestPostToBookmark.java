@@ -35,7 +35,7 @@ public class TestPostToBookmark extends BaseTest{
            .delete(id1.indexOf(","), id1.length());
         id2.delete(0, id2.lastIndexOf(",") + 1);
         assertThat("Не удалось добавить пост в закладки", id1.toString(), equalTo(id2.toString()));
-
+        bookmarksPageSteps.deleteFirstPostFromBookmark();
     }
 
 }
