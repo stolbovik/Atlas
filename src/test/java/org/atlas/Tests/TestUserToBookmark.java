@@ -12,6 +12,11 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
+/**
+ * Test of adding video to bookmarks
+ *
+ * @author aa-bushkina
+ */
 @DisplayName("Тест для добавления человека в закладки")
 public class TestUserToBookmark extends BaseTest {
     @Inject

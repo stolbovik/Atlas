@@ -12,7 +12,7 @@ public class VideoPageSteps {
     @NotNull
     private final VideoPage videoPage;
 
-    public VideoPageSteps(@NotNull BaseTest test) {
+    public VideoPageSteps(@NotNull final BaseTest test) {
         this.TEST = test;
         this.videoPage = TEST.getSite().onVideoPage();
     }
@@ -35,5 +35,4 @@ public class VideoPageSteps {
         href.append(videoPage.videoTopList().firstVideo().getAttribute("href"));
         return this;
     }
-
 }

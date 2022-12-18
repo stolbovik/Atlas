@@ -3,6 +3,9 @@ package org.atlas.Resources;
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Info about user for adding he/she to bookmarks
+ */
 @Data
 public class UserInfo {
     @NotNull

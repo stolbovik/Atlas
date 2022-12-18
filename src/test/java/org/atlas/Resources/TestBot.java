@@ -3,6 +3,9 @@ package org.atlas.Resources;
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Test bot info for login in system
+ */
 @Data
 public class TestBot {
     @NotNull

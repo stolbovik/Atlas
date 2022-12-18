@@ -24,5 +24,4 @@ public class UserGroupsPageSteps {
         groupsPage.groupCards().goToGroup(name).click();
         return new GroupPageSteps(TEST);
     }
-
 }

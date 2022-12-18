@@ -30,5 +30,4 @@ public class LoginPageSteps {
         loginPage.button(SIGN_IN_BUTTON).click();
         return new FeedPageSteps(TEST);
     }
-
 }

@@ -30,5 +30,4 @@ public class UserPageSteps {
         userPage.thirdMenuSection().actionLink("/bookmarks").click();
         return new BookmarksPageSteps(TEST);
     }
-
 }

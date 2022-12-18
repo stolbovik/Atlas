@@ -29,7 +29,7 @@ public class BookmarksPageSteps {
         return this;
     }
 
-    public BookmarksPageSteps getHrefFirstVideo(StringBuilder href) {
+    public BookmarksPageSteps getHrefFirstVideo(@NotNull final StringBuilder href) {
         href.append(bookmarksPage.videos().firstVideo().getAttribute("href"));
         return this;
     }
@@ -50,12 +50,12 @@ public class BookmarksPageSteps {
         return this;
     }
 
-    public BookmarksPageSteps getLastGroupName(StringBuilder groupName) {
+    public BookmarksPageSteps getLastGroupName(@NotNull final StringBuilder groupName) {
         groupName.append(bookmarksPage.groups().firstGroup().getName().getText());
         return this;
     }
 
-    public BookmarksPageSteps getLastUserName(StringBuilder userName) {
+    public BookmarksPageSteps getLastUserName(@NotNull final StringBuilder userName) {
         userName.append(bookmarksPage.users().firstUser().getText());
         return this;
     }
@@ -65,7 +65,7 @@ public class BookmarksPageSteps {
         return new GroupPageSteps(TEST);
     }
 
-    public UserPageSteps goToUserPageFromBookmarks(final UserInfo userInfo) {
+    public UserPageSteps goToUserPageFromBookmarks(@NotNull final UserInfo userInfo) {
         bookmarksPage.users().firstUser().getName().click();
         return new UserPageSteps(TEST, userInfo.getId());
     }
@@ -75,7 +75,7 @@ public class BookmarksPageSteps {
         return this;
     }
 
-    public BookmarksPageSteps getIdOfFirstPost(StringBuilder href) {
+    public BookmarksPageSteps getIdOfFirstPost(@NotNull final StringBuilder href) {
         href.append(bookmarksPage.posts().firstPost().postBody().getAttribute("data-l"));
         return this;
     }
