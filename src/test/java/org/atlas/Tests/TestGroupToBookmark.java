@@ -40,9 +40,8 @@ public class TestGroupToBookmark extends BaseTest {
             .goToBookmarks()
             .goToGroupsBookmarks()
             .getLastGroupId(addedGroupId);
-
-        assertThat("Не удалось добавить группу в закладки", addedGroupId.substring(1, addedGroupId.length() - 1),
-            equalTo(addingGroupId.substring(1, addingGroupId.length() - 1)));
+        assertThat("Не удалось добавить группу в закладки", addedGroupId.toString(),
+            equalTo(addingGroupId.toString()));
 
         bookmarksPageSteps.goToGroupPageFromBookmarks()
             .deleteGroupFromBookmark();

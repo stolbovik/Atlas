@@ -43,8 +43,8 @@ public class TestUserToBookmark extends BaseTest {
             .goToUsersBookmarks()
             .getLastUserId(addedId);
 
-        assertThat("Не удалось добавить человека в закладки", addedId.substring(1, addedId.length() - 1),
-            equalTo(userInfo.getId().substring(1, userInfo.getId().length() - 1)));
+        assertThat("Не удалось добавить человека в закладки", addedId.toString(),
+            equalTo(userInfo.getId()));
 
         bookmarksPageSteps.goToUserPageFromBookmarks(userInfo)
             .deleteUserToBookmark();
