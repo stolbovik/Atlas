@@ -35,16 +35,16 @@ public class TestUserToBookmark extends BaseTest {
     @Tag("user_bookmark")
     @Test
     public void doTest() {
-        StringBuilder addedUserName = new StringBuilder();
+        StringBuilder addedId = new StringBuilder();
         bookmarksPageSteps = loginSteps.loginIn(testBot)
             .findUser(userInfo)
             .addUserToBookmark()
             .goToBookmarks()
             .goToUsersBookmarks()
-            .getLastUserName(addedUserName);
+            .getLastUserId(addedId);
 
-        assertThat("Не удалось добавить человека в закладки", addedUserName.substring(1, addedUserName.length() - 1),
-            equalTo(userInfo.getName().substring(1, userInfo.getName().length() - 1)));
+        assertThat("Не удалось добавить человека в закладки", addedId.substring(1, addedId.length() - 1),
+            equalTo(userInfo.getId().substring(1, userInfo.getId().length() - 1)));
 
         bookmarksPageSteps.goToUserPageFromBookmarks(userInfo)
             .deleteUserToBookmark();

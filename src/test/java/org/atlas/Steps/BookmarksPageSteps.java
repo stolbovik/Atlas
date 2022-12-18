@@ -50,13 +50,15 @@ public class BookmarksPageSteps {
         return this;
     }
 
-    public BookmarksPageSteps getLastGroupName(@NotNull final StringBuilder groupName) {
-        groupName.append(bookmarksPage.groups().firstGroup().getName().getText());
+    public BookmarksPageSteps getLastGroupId(@NotNull final StringBuilder id) {
+        final String href = bookmarksPage.groups().firstGroup().getName().getAttribute("href");
+        id.append(href.substring(href.lastIndexOf("/") + 1));
         return this;
     }
 
-    public BookmarksPageSteps getLastUserName(@NotNull final StringBuilder userName) {
-        userName.append(bookmarksPage.users().firstUser().getText());
+    public BookmarksPageSteps getLastUserId(@NotNull final StringBuilder id) {
+        final String href = bookmarksPage.users().firstUser().getName().getAttribute("href");
+        id.append(href.substring(href.lastIndexOf("/") + 1));
         return this;
     }
 
