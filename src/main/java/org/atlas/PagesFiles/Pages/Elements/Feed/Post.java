@@ -14,6 +14,7 @@ public interface Post extends AtlasWebElement {
 
     @FindBy(TO_BUTTON_FOR_ADD_TO_BOOKMARK)
     AtlasWebElement buttonForAddToBookmark();
+
     @FindBy(TO_BODY_POST)
     AtlasWebElement postBody();
 

@@ -5,8 +5,8 @@ import org.atlas.PagesFiles.Pages.Elements.Group.GroupCard;
 
 public interface WithGroupCards {
 
-  String TO_GROUP_CARDS = "//div[@id='hook_Loader_UserGroupsSearchPortalLoader']";
+    String TO_GROUP_CARDS = "//div[@id='hook_Loader_UserGroupsSearchPortalLoader']";
 
-  @FindBy(TO_GROUP_CARDS)
-  GroupCard groupCards();
+    @FindBy(TO_GROUP_CARDS)
+    GroupCard groupCards();
 }

@@ -6,9 +6,9 @@ import io.qameta.atlas.webdriver.extension.Param;
 
 @SuppressWarnings("rawtypes")
 public interface GroupCard extends AtlasWebElement {
-  String TO_GROUP =
-    "//div[@class='ucard-v __h group-big-card __trimmed __flex']//*[contains(text(), '{{ data }}')]/..";
+    String TO_GROUP =
+        "//div[@class='ucard-v __h group-big-card __trimmed __flex']//*[contains(text(), '{{ data }}')]/..";
 
-  @FindBy(TO_GROUP)
-  AtlasWebElement goToGroup(@Param("data") String data);
+    @FindBy(TO_GROUP)
+    AtlasWebElement goToGroup(@Param("data") String data);
 }

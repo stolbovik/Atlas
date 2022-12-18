@@ -30,13 +30,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.24</version>
-      <scope>provided</scope>
-    </dependency>
-
-    <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>5.3.1</version>
@@ -87,7 +80,6 @@
       <groupId>org.jetbrains</groupId>
       <artifactId>annotations</artifactId>
       <version>23.0.0</version>
-      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -113,6 +105,12 @@
       <artifactId>guice</artifactId>
       <version>5.1.0</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <version>13.0</version>
+      <scope>compile</scope>
     </dependency>
 
   </dependencies>

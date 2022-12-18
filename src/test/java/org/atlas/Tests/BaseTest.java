@@ -8,6 +8,7 @@ import io.qameta.atlas.webdriver.WebDriverConfiguration;
 import org.atlas.GuiceModule;
 import org.atlas.PagesFiles.Sites.OkSite;
 import org.atlas.Resources.TestBot;
+import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,51 +17,56 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
 public class BaseTest {
-  static final private String LOGIN_URL = "https://ok.ru/";
-  static final private String TEST_BOT_LOGIN = "technoPol4";
-  static final private String TEST_BOT_PASSWORD = "technoPolis2022";
-  static final private String TEST_BOT_ID = "585556286938";
-  static protected OkSite site;
-  static protected WebDriver driver;
-  static protected TestBot testBot;
-  final private Injector injector = Guice.createInjector(new GuiceModule(this));
+    @NotNull
+    static final private String LOGIN_URL = "https://ok.ru/";
+    @NotNull
+    static final private String TEST_BOT_LOGIN = "technoPol4";
+    @NotNull
+    static final private String TEST_BOT_PASSWORD = "technoPolis2022";
+    @NotNull
+    static final private String TEST_BOT_ID = "585556286938";
+    static protected OkSite site;
+    static protected WebDriver driver;
+    static protected TestBot testBot;
+    @NotNull
+    final private Injector injector = Guice.createInjector(new GuiceModule(this));
 
-  @BeforeAll
-  public static void setUp() {
-    WebDriverManager.edgedriver().setup();
-    driver = new EdgeDriver();
-    site = new Atlas(new WebDriverConfiguration(driver, LOGIN_URL))
-      .create(driver, OkSite.class);
-    testBot = new TestBot(TEST_BOT_LOGIN, TEST_BOT_PASSWORD, TEST_BOT_ID);
-  }
+    @BeforeAll
+    public static void setUp() {
+        WebDriverManager.edgedriver().setup();
+        driver = new EdgeDriver();
+        site = new Atlas(new WebDriverConfiguration(driver, LOGIN_URL))
+            .create(driver, OkSite.class);
+        testBot = new TestBot(TEST_BOT_LOGIN, TEST_BOT_PASSWORD, TEST_BOT_ID);
+    }
 
-  @BeforeEach
-  public void toLogin() {
-    injector.injectMembers(this);
-    driver.get(LOGIN_URL);
-  }
+    @AfterAll
+    public static void tearDown() {
+        driver.quit();
+    }
 
-  @AfterEach
-  public void closeSite() {
-    driver.close();
-  }
+    @BeforeEach
+    public void toLogin() {
+        injector.injectMembers(this);
+        driver.get(LOGIN_URL);
+    }
 
-  @AfterAll
-  public static void tearDown() {
-    driver.quit();
-  }
+    @AfterEach
+    public void closeSite() {
+        driver.close();
+    }
 
-  public OkSite getSite() {
-    return site;
-  }
+    public OkSite getSite() {
+        return site;
+    }
 
-  public TestBot getTestBot() {
-    return testBot;
-  }
+    public TestBot getTestBot() {
+        return testBot;
+    }
 
-  public WebDriver getDriver() {
-    return driver;
-  }
+    public WebDriver getDriver() {
+        return driver;
+    }
 
 }
 

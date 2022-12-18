@@ -6,10 +6,10 @@ import org.atlas.PagesFiles.WithElements.WithThirdMenuSection;
 import org.atlas.PagesFiles.WithElements.WithToolbar;
 import org.atlas.PagesFiles.WithElements.WithVideoTopList;
 
-public interface VideoPage extends  WebPage,
-                                    WithNavigation,
-                                    WithToolbar,
-                                    WithThirdMenuSection,
-                                    WithVideoTopList {
+public interface VideoPage extends WebPage,
+    WithNavigation,
+    WithToolbar,
+    WithThirdMenuSection,
+    WithVideoTopList {
 
 }

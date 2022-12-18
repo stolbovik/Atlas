@@ -4,12 +4,14 @@ import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Info about user for adding he/she to bookmarks
+ * Test bot info for login in system
  */
 @Data
-public class UserInfo {
+public class TestBot {
     @NotNull
-    private final String name;
+    private final String login;
+    @NotNull
+    private final String password;
     @NotNull
     private final String id;
 }

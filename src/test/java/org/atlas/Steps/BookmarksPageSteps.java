@@ -3,80 +3,86 @@ package org.atlas.Steps;
 import org.atlas.PagesFiles.Pages.BookmarksPage;
 import org.atlas.Resources.UserInfo;
 import org.atlas.Tests.BaseTest;
+import org.jetbrains.annotations.NotNull;
 
 public class BookmarksPageSteps {
+    @NotNull
+    private final BaseTest TEST;
+    @NotNull
+    private final BookmarksPage bookmarksPage;
+    @NotNull
+    private final String MOVIES = "movies";
+    @NotNull
+    private final String GROUPS = "groups";
+    @NotNull
+    private final String TOPICS = "topics";
+    @NotNull
+    private final String USERS = "users";
 
-  private final BaseTest TEST;
-  private final BookmarksPage bookmarksPage;
-  private final String MOVIES = "movies";
-  private final String GROUPS = "groups";
-  private final String TOPICS = "topics";
-  private final String USERS = "users";
+    public BookmarksPageSteps(@NotNull final BaseTest test) {
+        this.TEST = test;
+        this.bookmarksPage = this.TEST.getSite().onBookmarksPage();
+    }
 
-  public BookmarksPageSteps(BaseTest test) {
-    this.TEST = test;
-    this.bookmarksPage = this.TEST.getSite().onBookmarksPage();
-  }
+    public BookmarksPageSteps goToVideoBookmarks() {
+        bookmarksPage.bookmarksMenuPanel().bookmarks(MOVIES).click();
+        return this;
+    }
 
-  public BookmarksPageSteps goToVideoBookmarks() {
-    bookmarksPage.bookmarksMenuPanel().bookmarks(MOVIES).click();
-    return this;
-  }
+    public BookmarksPageSteps getHrefFirstVideo(@NotNull final StringBuilder href) {
+        href.append(bookmarksPage.videos().firstVideo().getAttribute("href"));
+        return this;
+    }
 
-  public BookmarksPageSteps getHrefFirstVideo(StringBuilder href) {
-    href.append(bookmarksPage.videos().firstVideo().getAttribute("href"));
-    return this;
-  }
+    public BookmarksPageSteps deleteFirstVideoFromBookmark() {
+        bookmarksPage.videos().firstVideo().click();
+        bookmarksPage.mediaPlayer().buttonDeleteFromBookmark().click();
+        return this;
+    }
 
-  public BookmarksPageSteps deleteFirstVideoFromBookmark() {
-    bookmarksPage.videos().firstVideo().click();
-    bookmarksPage.mediaPlayer().buttonDeleteFromBookmark().click();
-    return this;
-  }
+    public BookmarksPageSteps goToGroupsBookmarks() {
+        bookmarksPage.bookmarksMenuPanel().bookmarks(GROUPS).click();
+        return this;
+    }
 
-  public BookmarksPageSteps goToGroupsBookmarks() {
-    bookmarksPage.bookmarksMenuPanel().bookmarks(GROUPS).click();
-    return this;
-  }
+    public BookmarksPageSteps goToUsersBookmarks() {
+        bookmarksPage.bookmarksMenuPanel().bookmarks(USERS).click();
+        return this;
+    }
 
-  public BookmarksPageSteps goToUsersBookmarks() {
-    bookmarksPage.bookmarksMenuPanel().bookmarks(USERS).click();
-    return this;
-  }
+    public BookmarksPageSteps getLastGroupName(@NotNull final StringBuilder groupName) {
+        groupName.append(bookmarksPage.groups().firstGroup().getName().getText());
+        return this;
+    }
 
-  public BookmarksPageSteps getLastGroupName(StringBuilder groupName) {
-    groupName.append(bookmarksPage.groups().firstGroup().getName().getText());
-    return this;
-  }
+    public BookmarksPageSteps getLastUserName(@NotNull final StringBuilder userName) {
+        userName.append(bookmarksPage.users().firstUser().getText());
+        return this;
+    }
 
-  public BookmarksPageSteps getLastUserName(StringBuilder userName) {
-    userName.append(bookmarksPage.users().firstUser().getText());
-    return this;
-  }
+    public GroupPageSteps goToGroupPageFromBookmarks() {
+        bookmarksPage.groups().firstGroup().getName().click();
+        return new GroupPageSteps(TEST);
+    }
 
-  public GroupPageSteps goToGroupPageFromBookmarks() {
-    bookmarksPage.groups().firstGroup().getName().click();
-    return new GroupPageSteps(TEST);
-  }
+    public UserPageSteps goToUserPageFromBookmarks(@NotNull final UserInfo userInfo) {
+        bookmarksPage.users().firstUser().getName().click();
+        return new UserPageSteps(TEST, userInfo.getId());
+    }
 
-  public UserPageSteps goToUserPageFromBookmarks(final UserInfo userInfo) {
-    bookmarksPage.users().firstUser().getName().click();
-    return new UserPageSteps(TEST, userInfo.getId());
-  }
+    public BookmarksPageSteps goToPostBookmarks() {
+        bookmarksPage.bookmarksMenuPanel().bookmarks(TOPICS).click();
+        return this;
+    }
 
-  public BookmarksPageSteps goToPostBookmarks() {
-    bookmarksPage.bookmarksMenuPanel().bookmarks(TOPICS).click();
-    return this;
-  }
+    public BookmarksPageSteps getIdOfFirstPost(@NotNull final StringBuilder href) {
+        href.append(bookmarksPage.posts().firstPost().postBody().getAttribute("data-l"));
+        return this;
+    }
 
-  public BookmarksPageSteps getIdOfFirstPost(StringBuilder href) {
-    href.append(bookmarksPage.posts().firstPost().postBody().getAttribute("data-l"));
-    return this;
-  }
-
-  public BookmarksPageSteps deleteFirstPostFromBookmark() {
-    bookmarksPage.posts().firstPost().postBody().click();
-    bookmarksPage.postTopic().buttonForDeleteBookmark().click();
-    return this;
-  }
+    public BookmarksPageSteps deleteFirstPostFromBookmark() {
+        bookmarksPage.posts().firstPost().postBody().click();
+        bookmarksPage.postTopic().buttonForDeleteBookmark().click();
+        return this;
+    }
 }

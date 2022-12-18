@@ -5,9 +5,9 @@ import org.atlas.PagesFiles.Pages.Elements.Toolbar;
 
 public interface WithToolbar {
 
-  String TO_TOOLBAR = "//div[@class='toolbar_c']";
+    String TO_TOOLBAR = "//div[@class='toolbar_c']";
 
-  @FindBy(TO_TOOLBAR)
-  Toolbar toolbar();
+    @FindBy(TO_TOOLBAR)
+    Toolbar toolbar();
 
 }
