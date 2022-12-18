@@ -8,7 +8,9 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("FieldCanBeLocal")
 public class LoginPageSteps {
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
+    @NotNull
+    private final LoginPage loginPage;
     private TestBot testBot;
     @NotNull
     private final String EMAIL_INPUT = "st.email";
@@ -16,19 +18,17 @@ public class LoginPageSteps {
     private final String PASSWORD_INPUT = "st.password";
     @NotNull
     private final String SIGN_IN_BUTTON = "login-form-actions";
-    @NotNull
-    private final LoginPage LOGIN_PAGE;
 
     public LoginPageSteps(@NotNull final BaseTest test) {
-        this.TEST = test;
-        this.LOGIN_PAGE = TEST.getSite().onLoginPage();
+        this.test = test;
+        this.loginPage = this.test.getSite().onLoginPage();
     }
 
     public FeedPageSteps loginIn(@NotNull final TestBot testBot) {
         this.testBot = testBot;
-        LOGIN_PAGE.input(EMAIL_INPUT).sendKeys(this.testBot.getLogin());
-        LOGIN_PAGE.input(PASSWORD_INPUT).sendKeys(this.testBot.getPassword());
-        LOGIN_PAGE.button(SIGN_IN_BUTTON).click();
-        return new FeedPageSteps(TEST);
+        loginPage.input(EMAIL_INPUT).sendKeys(this.testBot.getLogin());
+        loginPage.input(PASSWORD_INPUT).sendKeys(this.testBot.getPassword());
+        loginPage.button(SIGN_IN_BUTTON).click();
+        return new FeedPageSteps(test);
     }
 }

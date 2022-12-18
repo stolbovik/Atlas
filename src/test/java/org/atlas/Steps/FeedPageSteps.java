@@ -10,51 +10,51 @@ import org.openqa.selenium.Keys;
 @SuppressWarnings("FieldCanBeLocal")
 public class FeedPageSteps {
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
     @NotNull
-    private final FeedPage FEED_PAGE;
+    private final FeedPage feedPage;
     @NotNull
     private final String VIDEO = "Видео";
     @NotNull
     private final String GROUPS = "Группы";
 
     public FeedPageSteps(@NotNull final BaseTest test) {
-        this.TEST = test;
-        this.FEED_PAGE = TEST.getSite().onFeedPage();
+        this.test = test;
+        this.feedPage = this.test.getSite().onFeedPage();
     }
 
     public VideoPageSteps goToVideo() {
-        FEED_PAGE.toolbar().actionLink(VIDEO).click();
-        return new VideoPageSteps(TEST);
+        feedPage.toolbar().actionLink(VIDEO).click();
+        return new VideoPageSteps(test);
     }
 
     public UserGroupsPageSteps goToGroups() {
-        FEED_PAGE.navigation().goToSection(GROUPS).click();
-        return new UserGroupsPageSteps(TEST);
+        feedPage.navigation().goToSection(GROUPS).click();
+        return new UserGroupsPageSteps(test);
     }
 
     public BookmarksPageSteps goToBookmarks() {
-        FEED_PAGE.thirdMenuSection().actionLink("/bookmarks").click();
-        return new BookmarksPageSteps(TEST);
+        feedPage.thirdMenuSection().actionLink("/bookmarks").click();
+        return new BookmarksPageSteps(test);
     }
 
     public FeedPageSteps addFirstPostToBookmark() {
-        Post post = FEED_PAGE.listOfPosts().firstPost();
+        Post post = feedPage.listOfPosts().firstPost();
         post.postMenu().click();
         post.buttonForAddToBookmark().click();
         return this;
     }
 
     public FeedPageSteps getIdOfFirstPost(@NotNull final StringBuilder href) {
-        href.append(FEED_PAGE.listOfPosts().firstPost().postBody().getAttribute("data-l"));
+        href.append(feedPage.listOfPosts().firstPost().postBody().getAttribute("data-l"));
         return this;
     }
 
     public UserPageSteps findUser(@NotNull final UserInfo userInfo) {
         for (int i = 0; i < userInfo.getName().length(); i++) {
-            FEED_PAGE.toolbar().searchField().sendKeys(String.valueOf(userInfo.getName().charAt(i)));
+            feedPage.toolbar().searchField().sendKeys(String.valueOf(userInfo.getName().charAt(i)));
         }
-        FEED_PAGE.toolbar().searchField().sendKeys(Keys.ENTER);
-        return new UserPageSteps(TEST, userInfo.getId());
+        feedPage.toolbar().searchField().sendKeys(Keys.ENTER);
+        return new UserPageSteps(test, userInfo.getId());
     }
 }

@@ -8,29 +8,29 @@ import org.jetbrains.annotations.NotNull;
 public class UserPageSteps {
 
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
     @NotNull
-    private final UserPage USER_PAGE;
+    private final UserPage userPage;
 
     public UserPageSteps(@NotNull final BaseTest test, @NotNull final String id) {
-        this.TEST = test;
-        this.USER_PAGE = TEST.getSite().onUserPage(id);
+        this.test = test;
+        this.userPage = this.test.getSite().onUserPage(id);
     }
 
     public UserPageSteps addUserToBookmark() {
-        USER_PAGE.userMainPanel().getOtherActions().click();
-        USER_PAGE.userMainPanel().chooseAction("Добавить в закладки").click();
+        userPage.userMainPanel().getOtherActions().click();
+        userPage.userMainPanel().chooseAction("Добавить в закладки").click();
         return this;
     }
 
     public UserPageSteps deleteUserToBookmark() {
-        USER_PAGE.userMainPanel().getOtherActions().click();
-        USER_PAGE.userMainPanel().chooseAction("Убрать из закладок").click();
+        userPage.userMainPanel().getOtherActions().click();
+        userPage.userMainPanel().chooseAction("Убрать из закладок").click();
         return this;
     }
 
     public BookmarksPageSteps goToBookmarks() {
-        USER_PAGE.thirdMenuSection().actionLink("/bookmarks").click();
-        return new BookmarksPageSteps(TEST);
+        userPage.thirdMenuSection().actionLink("/bookmarks").click();
+        return new BookmarksPageSteps(test);
     }
 }

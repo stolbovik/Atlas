@@ -7,29 +7,29 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("UnusedReturnValue")
 public class GroupPageSteps {
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
     @NotNull
-    private final GroupPage GROUP_PAGE;
+    private final GroupPage groupPage;
 
     public GroupPageSteps(@NotNull final BaseTest test) {
-        this.TEST = test;
-        this.GROUP_PAGE = TEST.getSite().onGroupPage();
+        this.test = test;
+        this.groupPage = this.test.getSite().onGroupPage();
     }
 
     public GroupPageSteps addGroupToBookmark() {
-        GROUP_PAGE.groupMainPanel().getOtherActions().click();
-        GROUP_PAGE.groupMainPanel().addBookmark().click();
+        groupPage.groupMainPanel().getOtherActions().click();
+        groupPage.groupMainPanel().addBookmark().click();
         return this;
     }
 
     public GroupPageSteps deleteGroupFromBookmark() {
-        GROUP_PAGE.groupMainPanel().getOtherActions().click();
-        GROUP_PAGE.groupMainPanel().deleteBookmark().click();
+        groupPage.groupMainPanel().getOtherActions().click();
+        groupPage.groupMainPanel().deleteBookmark().click();
         return this;
     }
 
     public BookmarksPageSteps goToBookmarks() {
-        GROUP_PAGE.thirdMenuSection().actionLink("/bookmarks").click();
-        return new BookmarksPageSteps(TEST);
+        groupPage.thirdMenuSection().actionLink("/bookmarks").click();
+        return new BookmarksPageSteps(test);
     }
 }

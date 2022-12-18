@@ -7,21 +7,21 @@ import org.openqa.selenium.Keys;
 
 public class UserGroupsPageSteps {
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
     @NotNull
-    private final UserGroupsPage GROUP_PAGE;
+    private final UserGroupsPage groupsPage;
 
     public UserGroupsPageSteps(@NotNull final BaseTest test) {
-        this.TEST = test;
-        this.GROUP_PAGE = TEST.getSite().onGroupsPage(TEST.getTestBot().getId());
+        this.test = test;
+        this.groupsPage = this.test.getSite().onGroupsPage(this.test.getTestBot().getId());
     }
 
     public GroupPageSteps chooseGroup(@NotNull final String name) {
         for (int i = 0; i < name.length(); i++) {
-            GROUP_PAGE.groupsToolbar().searchField().sendKeys(String.valueOf(name.charAt(i)));
+            groupsPage.groupsToolbar().searchField().sendKeys(String.valueOf(name.charAt(i)));
         }
-        GROUP_PAGE.groupsToolbar().searchField().sendKeys(Keys.ENTER);
-        GROUP_PAGE.groupCards().goToGroup(name).click();
-        return new GroupPageSteps(TEST);
+        groupsPage.groupsToolbar().searchField().sendKeys(Keys.ENTER);
+        groupsPage.groupCards().goToGroup(name).click();
+        return new GroupPageSteps(test);
     }
 }
