@@ -7,9 +7,9 @@ import org.atlas.PagesFiles.WithElements.WithToolbar;
 import org.atlas.PagesFiles.WithElements.WithUserMenuPanel;
 
 public interface UserPage extends WebPage,
-  WithToolbar,
-  WithNavigation,
-  WithThirdMenuSection,
-  WithUserMenuPanel {
+    WithToolbar,
+    WithNavigation,
+    WithThirdMenuSection,
+    WithUserMenuPanel {
 
 }

@@ -7,9 +7,9 @@ import org.atlas.PagesFiles.WithElements.WithToolbar;
 import org.atlas.PagesFiles.WithElements.WithUserGroupsToolbar;
 
 public interface UserGroupsPage extends WebPage,
-  WithNavigation,
-  WithToolbar,
-  WithUserGroupsToolbar,
-  WithGroupCards {
+    WithNavigation,
+    WithToolbar,
+    WithUserGroupsToolbar,
+    WithGroupCards {
 
 }

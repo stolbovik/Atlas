@@ -4,54 +4,56 @@ import org.atlas.PagesFiles.Pages.Elements.Feed.Post;
 import org.atlas.PagesFiles.Pages.FeedPage;
 import org.atlas.Resources.UserInfo;
 import org.atlas.Tests.BaseTest;
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.Keys;
 
 public class FeedPageSteps {
+    @NotNull
+    private final BaseTest TEST;
+    @NotNull
+    private final FeedPage feedPage;
+    @NotNull
+    private final String VIDEO = "Видео";
+    @NotNull
+    private final String GROUPS = "Группы";
 
-  private final BaseTest TEST;
-  private final FeedPage feedPage;
-  private final String VIDEO = "Видео";
-  private final String GROUPS = "Группы";
-
-  public FeedPageSteps(BaseTest test) {
-    this.TEST = test;
-    this.feedPage = TEST.getSite().onFeedPage();
-  }
-
-  public VideoPageSteps goToVideo() {
-    feedPage.toolbar().actionLink(VIDEO).click();
-    return new VideoPageSteps(TEST);
-  }
-
-  public UserGroupsPageSteps goToGroups() {
-    feedPage.navigation().goToSection(GROUPS).click();
-    return new UserGroupsPageSteps(TEST);
-  }
-
-  public BookmarksPageSteps goToBookmarks() {
-    feedPage.thirdMenuSection().actionLink("/bookmarks").click();
-    return new BookmarksPageSteps(TEST);
-  }
-
-  public FeedPageSteps addFirstPostToBookmark() {
-    Post post = feedPage.listOfPosts().firstPost();
-    post.postMenu().click();
-    post.buttonForAddToBookmark().click();
-    return this;
-  }
-
-  public FeedPageSteps getIdOfFirstPost(StringBuilder href) {
-    href.append(feedPage.listOfPosts().firstPost().postBody().getAttribute("data-l"));
-    return this;
-  }
-
-  public UserPageSteps findUser(final UserInfo userInfo) {
-    for (int i = 0; i < userInfo.getName().length(); i++) {
-      feedPage.toolbar().searchField().sendKeys(String.valueOf(userInfo.getName().charAt(i)));
+    public FeedPageSteps(@NotNull final BaseTest test) {
+        this.TEST = test;
+        this.feedPage = TEST.getSite().onFeedPage();
     }
-    feedPage.toolbar().searchField().sendKeys(Keys.ENTER);
-    return new UserPageSteps(TEST, userInfo.getId());
-  }
 
+    public VideoPageSteps goToVideo() {
+        feedPage.toolbar().actionLink(VIDEO).click();
+        return new VideoPageSteps(TEST);
+    }
 
+    public UserGroupsPageSteps goToGroups() {
+        feedPage.navigation().goToSection(GROUPS).click();
+        return new UserGroupsPageSteps(TEST);
+    }
+
+    public BookmarksPageSteps goToBookmarks() {
+        feedPage.thirdMenuSection().actionLink("/bookmarks").click();
+        return new BookmarksPageSteps(TEST);
+    }
+
+    public FeedPageSteps addFirstPostToBookmark() {
+        Post post = feedPage.listOfPosts().firstPost();
+        post.postMenu().click();
+        post.buttonForAddToBookmark().click();
+        return this;
+    }
+
+    public FeedPageSteps getIdOfFirstPost(@NotNull final StringBuilder href) {
+        href.append(feedPage.listOfPosts().firstPost().postBody().getAttribute("data-l"));
+        return this;
+    }
+
+    public UserPageSteps findUser(@NotNull final UserInfo userInfo) {
+        for (int i = 0; i < userInfo.getName().length(); i++) {
+            feedPage.toolbar().searchField().sendKeys(String.valueOf(userInfo.getName().charAt(i)));
+        }
+        feedPage.toolbar().searchField().sendKeys(Keys.ENTER);
+        return new UserPageSteps(TEST, userInfo.getId());
+    }
 }

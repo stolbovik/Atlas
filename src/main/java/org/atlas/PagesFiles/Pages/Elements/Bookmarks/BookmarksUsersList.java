@@ -6,9 +6,9 @@ import io.qameta.atlas.webdriver.extension.FindBy;
 @SuppressWarnings("rawtypes")
 public interface BookmarksUsersList extends AtlasWebElement {
 
-  String USER_LIST = "//div[@class='bookmarks-menu-user-card']";
+    String USER_LIST = "//div[@class='bookmarks-menu-user-card']";
 
-  @FindBy(USER_LIST)
-  BookmarkedUserCard firstUser();
+    @FindBy(USER_LIST)
+    BookmarkedUserCard firstUser();
 
 }

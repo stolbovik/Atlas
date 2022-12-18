@@ -1,9 +1,12 @@
 package org.atlas.Resources;
 
 import lombok.Data;
+import org.jetbrains.annotations.NotNull;
 
 @Data
 public class UserInfo {
-  private final String name;
-  private final String id;
+    @NotNull
+    private final String name;
+    @NotNull
+    private final String id;
 }

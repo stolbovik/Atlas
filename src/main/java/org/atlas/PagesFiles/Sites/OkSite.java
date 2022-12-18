@@ -6,24 +6,24 @@ import io.qameta.atlas.webdriver.extension.Path;
 import org.atlas.PagesFiles.Pages.*;
 
 public interface OkSite extends WebSite {
-  @Page
-  LoginPage onLoginPage();
+    @Page
+    LoginPage onLoginPage();
 
-  @Page(url = "/feed")
-  FeedPage onFeedPage();
+    @Page(url = "/feed")
+    FeedPage onFeedPage();
 
-  @Page(url = "/video/showcase")
-  VideoPage onVideoPage();
+    @Page(url = "/video/showcase")
+    VideoPage onVideoPage();
 
-  @Page(url = "/bookmarks")
-  BookmarksPage onBookmarksPage();
+    @Page(url = "/bookmarks")
+    BookmarksPage onBookmarksPage();
 
-  @Page(url = "/profile/{data}/groups")
-  UserGroupsPage onGroupsPage(@Path("data") String data);
+    @Page(url = "/profile/{data}/groups")
+    UserGroupsPage onGroupsPage(@Path("data") String data);
 
-  @Page(url = "/ok")
-  GroupPage onGroupPage();
+    @Page(url = "/ok")
+    GroupPage onGroupPage();
 
-  @Page(url = "/profile/{data}")
-  UserPage onUserPage(@Path("data") String data);
+    @Page(url = "/profile/{data}")
+    UserPage onUserPage(@Path("data") String data);
 }

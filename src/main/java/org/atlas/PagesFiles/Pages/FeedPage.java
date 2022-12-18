@@ -7,9 +7,9 @@ import org.atlas.PagesFiles.WithElements.WithThirdMenuSection;
 import org.atlas.PagesFiles.WithElements.WithToolbar;
 
 public interface FeedPage extends WebPage,
-  WithToolbar,
-  WithNavigation,
-  WithThirdMenuSection,
-  WithListOfPosts {
+    WithToolbar,
+    WithNavigation,
+    WithThirdMenuSection,
+    WithListOfPosts {
 
 }

@@ -1,10 +1,14 @@
 package org.atlas.Resources;
 
 import lombok.Data;
+import org.jetbrains.annotations.NotNull;
 
 @Data
 public class TestBot {
-  private final String login;
-  private final String password;
-  private final String id;
+    @NotNull
+    private final String login;
+    @NotNull
+    private final String password;
+    @NotNull
+    private final String id;
 }
