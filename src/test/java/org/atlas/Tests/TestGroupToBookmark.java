@@ -16,6 +16,7 @@ import static org.hamcrest.Matchers.equalTo;
  *
  * @author aa-bushkina
  */
+@SuppressWarnings("FieldCanBeLocal")
 @DisplayName("Тест для добавления группы в закладки")
 public class TestGroupToBookmark extends BaseTest {
     @NotNull

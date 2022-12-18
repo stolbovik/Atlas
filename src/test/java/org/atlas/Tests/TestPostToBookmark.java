@@ -17,6 +17,7 @@ import static org.hamcrest.Matchers.equalTo;
  * @author stolbovik
  */
 @DisplayName("Тест для закладок постов")
+@SuppressWarnings("FieldCanBeLocal")
 public class TestPostToBookmark extends BaseTest {
 
     @Inject

@@ -5,6 +5,7 @@ import org.atlas.Resources.TestBot;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class LoginPageSteps {
     @NotNull
     private final BaseTest TEST;
@@ -16,18 +17,18 @@ public class LoginPageSteps {
     @NotNull
     private final String SIGN_IN_BUTTON = "login-form-actions";
     @NotNull
-    private final LoginPage loginPage;
+    private final LoginPage LOGIN_PAGE;
 
     public LoginPageSteps(@NotNull final BaseTest test) {
         this.TEST = test;
-        this.loginPage = TEST.getSite().onLoginPage();
+        this.LOGIN_PAGE = TEST.getSite().onLoginPage();
     }
 
     public FeedPageSteps loginIn(@NotNull final TestBot testBot) {
         this.testBot = testBot;
-        loginPage.input(EMAIL_INPUT).sendKeys(this.testBot.getLogin());
-        loginPage.input(PASSWORD_INPUT).sendKeys(this.testBot.getPassword());
-        loginPage.button(SIGN_IN_BUTTON).click();
+        LOGIN_PAGE.input(EMAIL_INPUT).sendKeys(this.testBot.getLogin());
+        LOGIN_PAGE.input(PASSWORD_INPUT).sendKeys(this.testBot.getPassword());
+        LOGIN_PAGE.button(SIGN_IN_BUTTON).click();
         return new FeedPageSteps(TEST);
     }
 }

@@ -10,15 +10,15 @@ public class VideoPageSteps {
     @NotNull
     private final BaseTest TEST;
     @NotNull
-    private final VideoPage videoPage;
+    private final VideoPage VIDEO_PAGE;
 
     public VideoPageSteps(@NotNull final BaseTest test) {
         this.TEST = test;
-        this.videoPage = TEST.getSite().onVideoPage();
+        this.VIDEO_PAGE = TEST.getSite().onVideoPage();
     }
 
     public VideoPageSteps addFirstVideoToBookmark() {
-        final Video video = videoPage.videoTopList().firstVideo();
+        final Video video = VIDEO_PAGE.videoTopList().firstVideo();
         final Actions action = new Actions(TEST.getDriver());
         action.moveToElement(video).perform();
         video.videoMenu().click();
@@ -27,12 +27,12 @@ public class VideoPageSteps {
     }
 
     public BookmarksPageSteps goToBookmarks() {
-        videoPage.thirdMenuSection().actionLink("/bookmarks").click();
+        VIDEO_PAGE.thirdMenuSection().actionLink("/bookmarks").click();
         return new BookmarksPageSteps(TEST);
     }
 
     public VideoPageSteps getHrefFirstVideo(@NotNull final StringBuilder href) {
-        href.append(videoPage.videoTopList().firstVideo().getAttribute("href"));
+        href.append(VIDEO_PAGE.videoTopList().firstVideo().getAttribute("href"));
         return this;
     }
 }

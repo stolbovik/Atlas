@@ -7,11 +7,12 @@ import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.Keys;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class FeedPageSteps {
     @NotNull
     private final BaseTest TEST;
     @NotNull
-    private final FeedPage feedPage;
+    private final FeedPage FEED_PAGE;
     @NotNull
     private final String VIDEO = "Видео";
     @NotNull
@@ -19,41 +20,41 @@ public class FeedPageSteps {
 
     public FeedPageSteps(@NotNull final BaseTest test) {
         this.TEST = test;
-        this.feedPage = TEST.getSite().onFeedPage();
+        this.FEED_PAGE = TEST.getSite().onFeedPage();
     }
 
     public VideoPageSteps goToVideo() {
-        feedPage.toolbar().actionLink(VIDEO).click();
+        FEED_PAGE.toolbar().actionLink(VIDEO).click();
         return new VideoPageSteps(TEST);
     }
 
     public UserGroupsPageSteps goToGroups() {
-        feedPage.navigation().goToSection(GROUPS).click();
+        FEED_PAGE.navigation().goToSection(GROUPS).click();
         return new UserGroupsPageSteps(TEST);
     }
 
     public BookmarksPageSteps goToBookmarks() {
-        feedPage.thirdMenuSection().actionLink("/bookmarks").click();
+        FEED_PAGE.thirdMenuSection().actionLink("/bookmarks").click();
         return new BookmarksPageSteps(TEST);
     }
 
     public FeedPageSteps addFirstPostToBookmark() {
-        Post post = feedPage.listOfPosts().firstPost();
+        Post post = FEED_PAGE.listOfPosts().firstPost();
         post.postMenu().click();
         post.buttonForAddToBookmark().click();
         return this;
     }
 
     public FeedPageSteps getIdOfFirstPost(@NotNull final StringBuilder href) {
-        href.append(feedPage.listOfPosts().firstPost().postBody().getAttribute("data-l"));
+        href.append(FEED_PAGE.listOfPosts().firstPost().postBody().getAttribute("data-l"));
         return this;
     }
 
     public UserPageSteps findUser(@NotNull final UserInfo userInfo) {
         for (int i = 0; i < userInfo.getName().length(); i++) {
-            feedPage.toolbar().searchField().sendKeys(String.valueOf(userInfo.getName().charAt(i)));
+            FEED_PAGE.toolbar().searchField().sendKeys(String.valueOf(userInfo.getName().charAt(i)));
         }
-        feedPage.toolbar().searchField().sendKeys(Keys.ENTER);
+        FEED_PAGE.toolbar().searchField().sendKeys(Keys.ENTER);
         return new UserPageSteps(TEST, userInfo.getId());
     }
 }

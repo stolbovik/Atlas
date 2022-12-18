@@ -1,12 +1,14 @@
 package org.atlas.Resources;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Test bot info for login in system
+ * Test bot info
  */
-@Data
+@AllArgsConstructor
+@Getter
 public class TestBot {
     @NotNull
     private final String login;

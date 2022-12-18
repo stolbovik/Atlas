@@ -17,6 +17,7 @@ import static org.hamcrest.Matchers.equalTo;
  * @author stolbovik
  */
 @DisplayName("Тест для видеозакладок")
+@SuppressWarnings("FieldCanBeLocal")
 public class TestVideoToBookmark extends BaseTest {
     @Inject
     @NotNull

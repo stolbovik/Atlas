@@ -4,30 +4,33 @@ import org.atlas.PagesFiles.Pages.UserPage;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("UnusedReturnValue")
 public class UserPageSteps {
 
+    @NotNull
     private final BaseTest TEST;
-    private final UserPage userPage;
+    @NotNull
+    private final UserPage USER_PAGE;
 
     public UserPageSteps(@NotNull final BaseTest test, @NotNull final String id) {
         this.TEST = test;
-        this.userPage = TEST.getSite().onUserPage(id);
+        this.USER_PAGE = TEST.getSite().onUserPage(id);
     }
 
     public UserPageSteps addUserToBookmark() {
-        userPage.userMainPanel().getOtherActions().click();
-        userPage.userMainPanel().chooseAction("Добавить в закладки").click();
+        USER_PAGE.userMainPanel().getOtherActions().click();
+        USER_PAGE.userMainPanel().chooseAction("Добавить в закладки").click();
         return this;
     }
 
     public UserPageSteps deleteUserToBookmark() {
-        userPage.userMainPanel().getOtherActions().click();
-        userPage.userMainPanel().chooseAction("Убрать из закладок").click();
+        USER_PAGE.userMainPanel().getOtherActions().click();
+        USER_PAGE.userMainPanel().chooseAction("Убрать из закладок").click();
         return this;
     }
 
     public BookmarksPageSteps goToBookmarks() {
-        userPage.thirdMenuSection().actionLink("/bookmarks").click();
+        USER_PAGE.thirdMenuSection().actionLink("/bookmarks").click();
         return new BookmarksPageSteps(TEST);
     }
 }
