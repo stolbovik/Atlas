@@ -32,17 +32,17 @@ public class TestGroupToBookmark extends BaseTest {
     @Tag("group_bookmark")
     @Test
     public void doTest() {
-        StringBuilder addedGroupName = new StringBuilder();
+        StringBuilder addedGroupId = new StringBuilder();
+        StringBuilder addingGroupId = new StringBuilder();
         bookmarksPageSteps = loginSteps.loginIn(testBot)
             .goToGroups()
-            .chooseGroup(GROUP_NAME)
+            .chooseGroup(GROUP_NAME, addingGroupId)
             .addGroupToBookmark()
             .goToBookmarks()
             .goToGroupsBookmarks()
-            .getLastGroupName(addedGroupName);
-
-        assertThat("Не удалось добавить группу в закладки", addedGroupName.substring(1, addedGroupName.length() - 1),
-            equalTo(GROUP_NAME.substring(1, GROUP_NAME.length() - 1)));
+            .getLastGroupId(addedGroupId);
+        assertThat("Не удалось добавить группу в закладки", addedGroupId.toString(),
+            equalTo(addingGroupId.toString()));
 
         bookmarksPageSteps.goToGroupPageFromBookmarks()
             .deleteGroupFromBookmark();
