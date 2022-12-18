@@ -7,9 +7,10 @@ import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.Keys;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class FeedPageSteps {
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
     @NotNull
     private final FeedPage feedPage;
     @NotNull
@@ -18,23 +19,23 @@ public class FeedPageSteps {
     private final String GROUPS = "Группы";
 
     public FeedPageSteps(@NotNull final BaseTest test) {
-        this.TEST = test;
-        this.feedPage = TEST.getSite().onFeedPage();
+        this.test = test;
+        this.feedPage = this.test.getSite().onFeedPage();
     }
 
     public VideoPageSteps goToVideo() {
         feedPage.toolbar().actionLink(VIDEO).click();
-        return new VideoPageSteps(TEST);
+        return new VideoPageSteps(test);
     }
 
     public UserGroupsPageSteps goToGroups() {
         feedPage.navigation().goToSection(GROUPS).click();
-        return new UserGroupsPageSteps(TEST);
+        return new UserGroupsPageSteps(test);
     }
 
     public BookmarksPageSteps goToBookmarks() {
         feedPage.thirdMenuSection().actionLink("/bookmarks").click();
-        return new BookmarksPageSteps(TEST);
+        return new BookmarksPageSteps(test);
     }
 
     public FeedPageSteps addFirstPostToBookmark() {
@@ -54,6 +55,6 @@ public class FeedPageSteps {
             feedPage.toolbar().searchField().sendKeys(String.valueOf(userInfo.getName().charAt(i)));
         }
         feedPage.toolbar().searchField().sendKeys(Keys.ENTER);
-        return new UserPageSteps(TEST, userInfo.getId());
+        return new UserPageSteps(test, userInfo.getId());
     }
 }

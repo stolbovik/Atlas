@@ -18,6 +18,7 @@ import static org.hamcrest.Matchers.equalTo;
  * @author aa-bushkina
  */
 @DisplayName("Тест для добавления человека в закладки")
+@SuppressWarnings("FieldCanBeLocal")
 public class TestUserToBookmark extends BaseTest {
     @Inject
     @NotNull

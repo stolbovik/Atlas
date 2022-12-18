@@ -7,13 +7,13 @@ import org.openqa.selenium.Keys;
 
 public class UserGroupsPageSteps {
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
     @NotNull
     private final UserGroupsPage groupsPage;
 
     public UserGroupsPageSteps(@NotNull final BaseTest test) {
-        this.TEST = test;
-        this.groupsPage = TEST.getSite().onGroupsPage(TEST.getTestBot().getId());
+        this.test = test;
+        this.groupsPage = this.test.getSite().onGroupsPage(this.test.getTestBot().getId());
     }
 
     public GroupPageSteps chooseGroup(@NotNull final String name) {
@@ -22,6 +22,6 @@ public class UserGroupsPageSteps {
         }
         groupsPage.groupsToolbar().searchField().sendKeys(Keys.ENTER);
         groupsPage.groupCards().goToGroup(name).click();
-        return new GroupPageSteps(TEST);
+        return new GroupPageSteps(test);
     }
 }

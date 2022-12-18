@@ -7,6 +7,7 @@ import org.atlas.Steps.LoginPageSteps;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("FieldCanBeLocal")
 public class GuiceModule extends AbstractModule {
     @NotNull
     private final BaseTest baseTest;

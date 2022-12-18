@@ -4,14 +4,17 @@ import org.atlas.PagesFiles.Pages.UserPage;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("UnusedReturnValue")
 public class UserPageSteps {
 
-    private final BaseTest TEST;
+    @NotNull
+    private final BaseTest test;
+    @NotNull
     private final UserPage userPage;
 
     public UserPageSteps(@NotNull final BaseTest test, @NotNull final String id) {
-        this.TEST = test;
-        this.userPage = TEST.getSite().onUserPage(id);
+        this.test = test;
+        this.userPage = this.test.getSite().onUserPage(id);
     }
 
     public UserPageSteps addUserToBookmark() {
@@ -28,6 +31,6 @@ public class UserPageSteps {
 
     public BookmarksPageSteps goToBookmarks() {
         userPage.thirdMenuSection().actionLink("/bookmarks").click();
-        return new BookmarksPageSteps(TEST);
+        return new BookmarksPageSteps(test);
     }
 }

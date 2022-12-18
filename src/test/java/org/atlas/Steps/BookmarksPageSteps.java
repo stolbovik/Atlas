@@ -5,9 +5,10 @@ import org.atlas.Resources.UserInfo;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings({"FieldCanBeLocal", "UnusedReturnValue"})
 public class BookmarksPageSteps {
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
     @NotNull
     private final BookmarksPage bookmarksPage;
     @NotNull
@@ -20,8 +21,8 @@ public class BookmarksPageSteps {
     private final String USERS = "users";
 
     public BookmarksPageSteps(@NotNull final BaseTest test) {
-        this.TEST = test;
-        this.bookmarksPage = this.TEST.getSite().onBookmarksPage();
+        this.test = test;
+        this.bookmarksPage = this.test.getSite().onBookmarksPage();
     }
 
     public BookmarksPageSteps goToVideoBookmarks() {
@@ -62,12 +63,12 @@ public class BookmarksPageSteps {
 
     public GroupPageSteps goToGroupPageFromBookmarks() {
         bookmarksPage.groups().firstGroup().getName().click();
-        return new GroupPageSteps(TEST);
+        return new GroupPageSteps(test);
     }
 
     public UserPageSteps goToUserPageFromBookmarks(@NotNull final UserInfo userInfo) {
         bookmarksPage.users().firstUser().getName().click();
-        return new UserPageSteps(TEST, userInfo.getId());
+        return new UserPageSteps(test, userInfo.getId());
     }
 
     public BookmarksPageSteps goToPostBookmarks() {
@@ -81,7 +82,7 @@ public class BookmarksPageSteps {
     }
 
     public BookmarksPageSteps deleteFirstPostFromBookmark() {
-        bookmarksPage.posts().firstPost().postBody().click();
+        bookmarksPage.posts().firstPost().descriptionPost().click();
         bookmarksPage.postTopic().buttonForDeleteBookmark().click();
         return this;
     }

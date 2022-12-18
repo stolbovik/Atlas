@@ -4,6 +4,7 @@ import io.qameta.atlas.webdriver.AtlasWebElement;
 import io.qameta.atlas.webdriver.extension.FindBy;
 import org.atlas.PagesFiles.Pages.Elements.Feed.Post;
 
+@SuppressWarnings("rawtypes")
 public interface BookmarksPostsList extends AtlasWebElement {
 
     String TO_FIRST_POST = "//div[@class='feed']";

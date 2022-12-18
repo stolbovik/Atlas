@@ -4,15 +4,16 @@ import org.atlas.PagesFiles.Pages.GroupPage;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 
+@SuppressWarnings("UnusedReturnValue")
 public class GroupPageSteps {
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
     @NotNull
     private final GroupPage groupPage;
 
     public GroupPageSteps(@NotNull final BaseTest test) {
-        this.TEST = test;
-        this.groupPage = TEST.getSite().onGroupPage();
+        this.test = test;
+        this.groupPage = this.test.getSite().onGroupPage();
     }
 
     public GroupPageSteps addGroupToBookmark() {
@@ -29,6 +30,6 @@ public class GroupPageSteps {
 
     public BookmarksPageSteps goToBookmarks() {
         groupPage.thirdMenuSection().actionLink("/bookmarks").click();
-        return new BookmarksPageSteps(TEST);
+        return new BookmarksPageSteps(test);
     }
 }

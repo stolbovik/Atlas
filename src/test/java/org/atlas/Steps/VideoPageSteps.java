@@ -8,18 +8,18 @@ import org.openqa.selenium.interactions.Actions;
 
 public class VideoPageSteps {
     @NotNull
-    private final BaseTest TEST;
+    private final BaseTest test;
     @NotNull
     private final VideoPage videoPage;
 
     public VideoPageSteps(@NotNull final BaseTest test) {
-        this.TEST = test;
-        this.videoPage = TEST.getSite().onVideoPage();
+        this.test = test;
+        this.videoPage = this.test.getSite().onVideoPage();
     }
 
     public VideoPageSteps addFirstVideoToBookmark() {
         final Video video = videoPage.videoTopList().firstVideo();
-        final Actions action = new Actions(TEST.getDriver());
+        final Actions action = new Actions(test.getDriver());
         action.moveToElement(video).perform();
         video.videoMenu().click();
         video.buttonForAddToBookmark().click();
@@ -28,7 +28,7 @@ public class VideoPageSteps {
 
     public BookmarksPageSteps goToBookmarks() {
         videoPage.thirdMenuSection().actionLink("/bookmarks").click();
-        return new BookmarksPageSteps(TEST);
+        return new BookmarksPageSteps(test);
     }
 
     public VideoPageSteps getHrefFirstVideo(@NotNull final StringBuilder href) {
