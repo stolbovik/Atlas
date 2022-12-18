@@ -11,7 +11,7 @@ public class UserGroupsPageSteps {
 
   public UserGroupsPageSteps(final BaseTest test) {
     this.TEST = test;
-    this.groupsPage = TEST.getSite().onGroupsPage(TEST.getTestBot().getID());
+    this.groupsPage = TEST.getSite().onGroupsPage(TEST.getTestBot().getId());
   }
 
   public GroupPageSteps chooseGroup(final String name) {

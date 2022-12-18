@@ -1,6 +1,7 @@
 package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.BookmarksPage;
+import org.atlas.Resources.UserInfo;
 import org.atlas.Tests.BaseTest;
 
 public class BookmarksPageSteps {
@@ -10,6 +11,7 @@ public class BookmarksPageSteps {
   private final String MOVIES = "movies";
   private final String GROUPS = "groups";
   private final String TOPICS = "topics";
+  private final String USERS = "users";
 
   public BookmarksPageSteps(BaseTest test) {
     this.TEST = test;
@@ -37,14 +39,29 @@ public class BookmarksPageSteps {
     return this;
   }
 
+  public BookmarksPageSteps goToUsersBookmarks() {
+    bookmarksPage.bookmarksMenuPanel().bookmarks(USERS).click();
+    return this;
+  }
+
   public BookmarksPageSteps getLastGroupName(StringBuilder groupName) {
     groupName.append(bookmarksPage.groups().firstGroup().getName().getText());
+    return this;
+  }
+
+  public BookmarksPageSteps getLastUserName(StringBuilder userName) {
+    userName.append(bookmarksPage.users().firstUser().getText());
     return this;
   }
 
   public GroupPageSteps goToGroupPageFromBookmarks() {
     bookmarksPage.groups().firstGroup().getName().click();
     return new GroupPageSteps(TEST);
+  }
+
+  public UserPageSteps goToUserPageFromBookmarks(final UserInfo userInfo) {
+    bookmarksPage.users().firstUser().getName().click();
+    return new UserPageSteps(TEST, userInfo.getId());
   }
 
   public BookmarksPageSteps goToPostBookmarks() {
