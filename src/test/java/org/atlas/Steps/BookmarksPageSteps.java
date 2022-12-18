@@ -1,6 +1,7 @@
 package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.BookmarksPage;
+import org.atlas.Resources.UserInfo;
 import org.atlas.Tests.BaseTest;
 
 public class BookmarksPageSteps {
@@ -48,9 +49,19 @@ public class BookmarksPageSteps {
     return this;
   }
 
+  public BookmarksPageSteps getLastUserName(StringBuilder userName) {
+    userName.append(bookmarksPage.users().firstUser().getText());
+    return this;
+  }
+
   public GroupPageSteps goToGroupPageFromBookmarks() {
     bookmarksPage.groups().firstGroup().getName().click();
     return new GroupPageSteps(TEST);
+  }
+
+  public UserPageSteps goToUserPageFromBookmarks(final UserInfo userInfo) {
+    bookmarksPage.users().firstUser().getName().click();
+    return new UserPageSteps(TEST, userInfo.getId());
   }
 
   public BookmarksPageSteps goToPostBookmarks() {

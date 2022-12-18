@@ -19,6 +19,12 @@ public class UserPageSteps {
     return this;
   }
 
+  public UserPageSteps deleteUserToBookmark() {
+    userPage.userMainPanel().getOtherActions().click();
+    userPage.userMainPanel().chooseAction("Убрать из закладок").click();
+    return this;
+  }
+
   public BookmarksPageSteps goToBookmarks() {
     userPage.thirdMenuSection().actionLink("/bookmarks").click();
     return new BookmarksPageSteps(TEST);

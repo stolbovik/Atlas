@@ -5,8 +5,8 @@ import org.atlas.PagesFiles.Pages.Elements.Bookmarks.BookmarksGroupList;
 
 public interface WithBookmarksGroupsList {
 
-    String TO_LIST_OF_GROUPS_VIDEO = "//div[contains(@class, 'bookmarks-user-group-list js-bookmarks-grid')]";
+    String TO_LIST_OF_GROUPS = "//div[contains(@class, 'bookmarks-user-group-list')]";
 
-    @FindBy(TO_LIST_OF_GROUPS_VIDEO)
+    @FindBy(TO_LIST_OF_GROUPS)
     BookmarksGroupList groups();
 }

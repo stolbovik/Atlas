@@ -1,7 +1,6 @@
 package org.atlas.PagesFiles.WithElements;
 
 import io.qameta.atlas.webdriver.extension.FindBy;
-import org.atlas.PagesFiles.Pages.Elements.Bookmarks.MediaPlayer;
 import org.atlas.PagesFiles.Pages.Elements.Bookmarks.PostTopic;
 
 public interface WithPostTopic {

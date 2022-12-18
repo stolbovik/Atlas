@@ -8,6 +8,9 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+
 @DisplayName("Тест для добавления человека в закладки")
 public class TestUserToBookmark extends BaseTest {
   @Inject
@@ -17,21 +20,22 @@ public class TestUserToBookmark extends BaseTest {
   @Inject
   private UserInfo userInfo;
 
-  @DisplayName("Добавление группы в закладки")
-  @Tag("group_bookmark")
+  @DisplayName("Добавление человека в закладки")
+  @Tag("user_bookmark")
   @Test
   public void doTest() {
-    StringBuilder addedGroupName = new StringBuilder();
-    loginSteps.loginIn(testBot)
+    StringBuilder addedUserName = new StringBuilder();
+    bookmarksPageSteps = loginSteps.loginIn(testBot)
       .findUser(userInfo)
       .addUserToBookmark()
       .goToBookmarks()
-      .goToUsersBookmarks();
+      .goToUsersBookmarks()
+      .getLastUserName(addedUserName);
 
-    /*assertThat("Не удалось добавить группу в закладки", addedGroupName.substring(1, addedGroupName.length() - 1),
-      equalTo(GROUP_NAME.substring(1, GROUP_NAME.length() - 1)));
+    assertThat("Не удалось добавить человека в закладки", addedUserName.substring(1, addedUserName.length() - 1),
+      equalTo(userInfo.getName().substring(1, userInfo.getName().length() - 1)));
 
-    bookmarksPageSteps.goToGroupPageFromBookmarks()
-      .deleteGroupFromBookmark();*/
+    bookmarksPageSteps.goToUserPageFromBookmarks(userInfo)
+      .deleteUserToBookmark();
   }
 }
