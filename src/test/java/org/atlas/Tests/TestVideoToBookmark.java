@@ -26,7 +26,7 @@ public class TestVideoToBookmark extends BaseTest {
     bookmarksPageSteps = loginSteps.loginIn(testBot)
       .goToVideo()
       .getHrefFirstVideo(href)
-      .addVideoToBookmark()
+      .addFirstVideoToBookmark()
       .goToBookmarks()
       .goToVideoBookmarks()
       .getHrefFirstVideo(href2);
