@@ -2,7 +2,9 @@ package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.Elements.Feed.Post;
 import org.atlas.PagesFiles.Pages.FeedPage;
+import org.atlas.Resources.UserInfo;
 import org.atlas.Tests.BaseTest;
+import org.openqa.selenium.Keys;
 
 public class FeedPageSteps {
 
@@ -42,5 +44,14 @@ public class FeedPageSteps {
     href.append(feedPage.listOfPosts().firstPost().postBody().getAttribute("data-l"));
     return this;
   }
+
+  public UserPageSteps findUser(final UserInfo userInfo) {
+    for (int i = 0; i < userInfo.getName().length(); i++) {
+      feedPage.toolbar().searchField().sendKeys(String.valueOf(userInfo.getName().charAt(i)));
+    }
+    feedPage.toolbar().searchField().sendKeys(Keys.ENTER);
+    return new UserPageSteps(TEST, userInfo.getId());
+  }
+
 
 }

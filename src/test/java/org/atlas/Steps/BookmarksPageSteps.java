@@ -10,6 +10,7 @@ public class BookmarksPageSteps {
   private final String MOVIES = "movies";
   private final String GROUPS = "groups";
   private final String TOPICS = "topics";
+  private final String USERS = "users";
 
   public BookmarksPageSteps(BaseTest test) {
     this.TEST = test;
@@ -34,6 +35,11 @@ public class BookmarksPageSteps {
 
   public BookmarksPageSteps goToGroupsBookmarks() {
     bookmarksPage.bookmarksMenuPanel().bookmarks(GROUPS).click();
+    return this;
+  }
+
+  public BookmarksPageSteps goToUsersBookmarks() {
+    bookmarksPage.bookmarksMenuPanel().bookmarks(USERS).click();
     return this;
   }
 
