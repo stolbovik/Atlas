@@ -1,7 +1,7 @@
 package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.LoginPage;
-import org.atlas.Resources.TestBot;
+import org.atlas.TestResources.TestBot;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 

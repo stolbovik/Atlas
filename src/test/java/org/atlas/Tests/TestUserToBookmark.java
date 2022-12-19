@@ -1,9 +1,9 @@
 package org.atlas.Tests;
 
 import com.google.inject.Inject;
-import org.atlas.Resources.UserInfo;
 import org.atlas.Steps.BookmarksPageSteps;
 import org.atlas.Steps.LoginPageSteps;
+import org.atlas.TestResources.UserInfo;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;

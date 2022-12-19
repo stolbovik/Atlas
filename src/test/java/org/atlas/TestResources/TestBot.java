@@ -1,4 +1,4 @@
-package org.atlas.Resources;
+package org.atlas.TestResources;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
