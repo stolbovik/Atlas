@@ -1,9 +1,9 @@
-package org.atlas;
+package org.atlas.Config;
 
 import com.google.inject.AbstractModule;
-import org.atlas.Resources.UserInfo;
 import org.atlas.Steps.BookmarksPageSteps;
 import org.atlas.Steps.LoginPageSteps;
+import org.atlas.TestResources.UserInfo;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 

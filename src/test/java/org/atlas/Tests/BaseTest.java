@@ -5,9 +5,10 @@ import com.google.inject.Injector;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.atlas.core.Atlas;
 import io.qameta.atlas.webdriver.WebDriverConfiguration;
-import org.atlas.GuiceModule;
+import org.atlas.Config.CustomLoggingListener;
+import org.atlas.Config.GuiceModule;
 import org.atlas.PagesFiles.Sites.OkSite;
-import org.atlas.Resources.TestBot;
+import org.atlas.TestResources.TestBot;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -15,6 +16,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class BaseTest {
     @NotNull
@@ -29,12 +31,12 @@ public class BaseTest {
     static protected WebDriver driver;
     static protected TestBot testBot;
     @NotNull
-    final private Injector injector = Guice.createInjector(new GuiceModule(this));
+    final private Injector INJECTOR = Guice.createInjector(new GuiceModule(this));
 
     @BeforeAll
     public static void setUp() {
         WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
+        driver = new EventFiringWebDriver(new EdgeDriver()).register(new CustomLoggingListener());
         site = new Atlas(new WebDriverConfiguration(driver, LOGIN_URL))
             .create(driver, OkSite.class);
         testBot = new TestBot(TEST_BOT_LOGIN, TEST_BOT_PASSWORD, TEST_BOT_ID);
@@ -47,7 +49,7 @@ public class BaseTest {
 
     @BeforeEach
     public void toLogin() {
-        injector.injectMembers(this);
+        INJECTOR.injectMembers(this);
         driver.get(LOGIN_URL);
     }
 

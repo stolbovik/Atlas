@@ -2,7 +2,7 @@ package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.Elements.Feed.Post;
 import org.atlas.PagesFiles.Pages.FeedPage;
-import org.atlas.Resources.UserInfo;
+import org.atlas.TestResources.UserInfo;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.Keys;

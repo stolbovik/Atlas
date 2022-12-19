@@ -1,4 +1,4 @@
-package org.atlas.Resources;
+package org.atlas.TestResources;
 
 import lombok.Data;
 import org.jetbrains.annotations.NotNull;

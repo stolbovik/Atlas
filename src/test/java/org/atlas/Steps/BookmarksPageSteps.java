@@ -1,7 +1,7 @@
 package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.BookmarksPage;
-import org.atlas.Resources.UserInfo;
+import org.atlas.TestResources.UserInfo;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
 
