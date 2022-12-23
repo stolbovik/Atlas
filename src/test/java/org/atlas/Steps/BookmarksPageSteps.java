@@ -1,6 +1,8 @@
 package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.BookmarksPage;
+import org.atlas.PagesFiles.Pages.Elements.Bookmarks.BookmarkedGroupCard;
+import org.atlas.PagesFiles.Pages.Elements.Bookmarks.BookmarkedUserCard;
 import org.atlas.PagesFiles.Pages.Elements.Feed.Post;
 import org.atlas.PagesFiles.Pages.Elements.Video.Video;
 import org.atlas.TestResources.UserInfo;
@@ -64,6 +66,14 @@ public class BookmarksPageSteps {
         final String href = bookmarksPage.users().firstUser().getName().getAttribute("href");
         id.append(href.substring(href.lastIndexOf("/") + 1));
         return this;
+    }
+
+    public BookmarkedUserCard getFirstUser() {
+        return bookmarksPage.users().firstUser();
+    }
+
+    public BookmarkedGroupCard getGroup(@NotNull final String groupName) {
+        return bookmarksPage.groups().getGroup(groupName);
     }
 
     public GroupPageSteps goToGroupPageFromBookmarks() {

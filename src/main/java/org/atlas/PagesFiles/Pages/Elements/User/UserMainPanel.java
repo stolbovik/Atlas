@@ -7,7 +7,7 @@ import io.qameta.atlas.webdriver.extension.Param;
 @SuppressWarnings("rawtypes")
 public interface UserMainPanel extends AtlasWebElement {
     String OTHERS_BTN = "//li[@class='u-menu_li expand-action-item']";
-    String ACTION_BTN = "//*[@class='u-menu_li __hl __custom']//*[contains(text(), '{{ data }}')]";
+    String ACTION_BTN = "//*[@class='u-menu_a ' and text()='{{ data }}']";
 
     @FindBy(OTHERS_BTN)
     AtlasWebElement getOtherActions();

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Test of adding video to bookmarks
@@ -49,17 +50,22 @@ public class TestUserToBookmark extends BaseTest {
 
     @BeforeEach
     void logInAndCheck() {
-        BookmarksPageSteps bookmarksPageSteps = loginSteps.loginIn(testBot)
+        bookmarksPageSteps = loginSteps.loginIn(testBot)
             .goToBookmarks()
             .goToUsersBookmarks();
-        //assertThat(isEmpty, true);
-        bookmarksPageSteps.goToFeedPage();
+        assertThat("Перед тестом список групп не пуст",
+            bookmarksPageSteps.checkBookmarksIsEmpty(), is(true));
     }
 
     @AfterEach
     void clean() {
-        //if (!isEmpty) {
-        bookmarksPageSteps.goToUserPageFromBookmarks(userInfo).deleteUserToBookmark();
-        //}
+        if (bookmarksPageSteps.getFirstUser().isEnabled()) {
+            bookmarksPageSteps.goToUserPageFromBookmarks(userInfo)
+                .deleteUserToBookmark()
+                .goToBookmarks()
+                .goToUsersBookmarks();
+        }
+        assertThat("После теста не произошло очищение",
+            bookmarksPageSteps.checkBookmarksIsEmpty(), is(true));
     }
 }
