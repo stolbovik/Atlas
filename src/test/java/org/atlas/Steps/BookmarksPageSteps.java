@@ -15,6 +15,7 @@ public class BookmarksPageSteps {
     private final String GROUPS = "groups";
     private final String TOPICS = "topics";
     private final String USERS = "users";
+    private final String VIDEO_PAGE = "Видео";
 
     public BookmarksPageSteps(@NotNull final BaseTest test) {
         this.test = test;
@@ -88,5 +89,10 @@ public class BookmarksPageSteps {
     public FeedPageSteps goToFeedPage() {
         bookmarksPage.toolbar().logo().click();
         return new FeedPageSteps(test);
+    }
+
+    public VideoPageSteps goToVideoPage() {
+        bookmarksPage.toolbar().actionLink(VIDEO_PAGE).click();
+        return new VideoPageSteps(test);
     }
 }
