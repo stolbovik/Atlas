@@ -8,6 +8,7 @@ import io.qameta.atlas.webdriver.extension.Param;
 public interface Toolbar extends AtlasWebElement {
     String TO_ACTION_LINK = "//ul[@class='toolbar_nav']//a[@aria-label='{{ data }}']";
     String SEARCH_FIELD = "//*[@name='st.query']";
+    String LOGO = "//*[@id='toolbar_logo_id']";
 
     @FindBy(TO_ACTION_LINK)
     AtlasWebElement actionLink(@Param("data") String data);
@@ -15,4 +16,6 @@ public interface Toolbar extends AtlasWebElement {
     @FindBy(SEARCH_FIELD)
     AtlasWebElement searchField();
 
+    @FindBy(LOGO)
+    AtlasWebElement logo();
 }
