@@ -72,8 +72,8 @@ public class BookmarksPageSteps {
         return bookmarksPage.users().firstUser();
     }
 
-    public BookmarkedGroupCard getFirstGroup() {
-        return bookmarksPage.groups().firstGroup();
+    public BookmarkedGroupCard getGroup(@NotNull final String groupName) {
+        return bookmarksPage.groups().getGroup(groupName);
     }
 
     public GroupPageSteps goToGroupPageFromBookmarks() {

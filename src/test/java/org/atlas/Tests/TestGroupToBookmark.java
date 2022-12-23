@@ -8,7 +8,7 @@ import org.junit.jupiter.api.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.hamcrest.Matchers.is;
 
 /**
  * Test of adding video to bookmarks
@@ -53,17 +53,19 @@ public class TestGroupToBookmark extends BaseTest {
         bookmarksPageSteps = loginSteps.loginIn(testBot)
             .goToBookmarks()
             .goToGroupsBookmarks();
-        assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
+        assertThat("Перед тестом список групп не пуст",
+            bookmarksPageSteps.checkBookmarksIsEmpty(), is(true));
     }
 
     @AfterEach
     void cleanAfter() {
-        if (bookmarksPageSteps.getFirstGroup().isEnabled()) {
+        if (bookmarksPageSteps.getGroup(GROUP_NAME).isEnabled()) {
             bookmarksPageSteps.goToGroupPageFromBookmarks()
                 .deleteGroupFromBookmark()
                 .goToBookmarks()
                 .goToGroupsBookmarks();
         }
-        assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
+        assertThat("После теста не произошло очищение",
+            bookmarksPageSteps.checkBookmarksIsEmpty(), is(true));
     }
 }
