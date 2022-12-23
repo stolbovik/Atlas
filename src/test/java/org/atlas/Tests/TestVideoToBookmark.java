@@ -5,6 +5,7 @@ import org.atlas.Steps.BookmarksPageSteps;
 import org.atlas.Steps.LoginPageSteps;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.*;
+import org.openqa.selenium.NoSuchElementException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -55,7 +56,7 @@ public class TestVideoToBookmark extends BaseTest {
     @AfterEach
     void cleanAfter() {
         bookmarksPageSteps.goToFeedPage().goToBookmarks().goToVideoBookmarks();
-        if (bookmarksPageSteps.getFirstVideo().isEnabled()) {
+        if (!bookmarksPageSteps.checkEmptyPostBookmark()) {
             bookmarksPageSteps.deleteFirstVideoFromBookmark();
             bookmarksPageSteps.closePlayer().goToVideoBookmarks();
         }
