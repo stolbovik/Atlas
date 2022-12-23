@@ -15,7 +15,7 @@ public interface BookmarksPage extends WebPage,
     WithPostTopic,
     WithBookmarksUsersList {
 
-    String EMPTY_BOOKMARK_PAGE = "//*[@class='stub-empty __v2 zeroTopBorderRadius ']";
+    String EMPTY_BOOKMARK_PAGE = "//*[@class='stub-empty __v2  ']";
 
     @FindBy(EMPTY_BOOKMARK_PAGE)
     Toolbar emptyBlock();
