@@ -33,6 +33,7 @@ public class BaseTest {
     public static void setUp() {
         WebDriverManager.edgedriver().setup();
         driver = new EventFiringWebDriver(new EdgeDriver()).register(new CustomLoggingListener());
+        driver.manage().window().maximize();
         site = new Atlas(new WebDriverConfiguration(driver, LOGIN_URL))
             .create(driver, OkSite.class);
         testBot = new TestBot(TEST_BOT_LOGIN, TEST_BOT_PASSWORD, TEST_BOT_ID);
