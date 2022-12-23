@@ -1,6 +1,7 @@
 package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.BookmarksPage;
+import org.atlas.PagesFiles.Pages.Elements.Video.Video;
 import org.atlas.TestResources.UserInfo;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
@@ -27,6 +28,11 @@ public class BookmarksPageSteps {
         return this;
     }
 
+    public BookmarksPageSteps goToAllBookmarks() {
+        bookmarksPage.bookmarksMenuPanel().allBookmarks().click();
+        return this;
+    }
+
     public BookmarksPageSteps getHrefFirstVideo(@NotNull final StringBuilder href) {
         href.append(bookmarksPage.videos().firstVideo().getAttribute("href"));
         return this;
@@ -36,6 +42,10 @@ public class BookmarksPageSteps {
         bookmarksPage.videos().firstVideo().click();
         bookmarksPage.mediaPlayer().buttonDeleteFromBookmark().click();
         return this;
+    }
+
+    public Video getFirstVideo() {
+        return bookmarksPage.videos().firstVideo();
     }
 
     public BookmarksPageSteps goToGroupsBookmarks() {
@@ -94,5 +104,14 @@ public class BookmarksPageSteps {
     public VideoPageSteps goToVideoPage() {
         bookmarksPage.toolbar().actionLink(VIDEO_PAGE).click();
         return new VideoPageSteps(test);
+    }
+
+    public boolean checkBookmarksIsEmpty() {
+        return bookmarksPage.emptyBlock().isEnabled();
+    }
+
+    public BookmarksPageSteps closePlayer() {
+        bookmarksPage.mediaPlayer().closePlayer().click();
+        return this;
     }
 }

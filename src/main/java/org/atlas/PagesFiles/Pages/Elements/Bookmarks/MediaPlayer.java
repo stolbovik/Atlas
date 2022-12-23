@@ -11,4 +11,9 @@ public interface MediaPlayer extends AtlasWebElement {
     @FindBy(TO_BUTTON_DELETE_VIDEO_FROM_BOOKMARK)
     AtlasWebElement buttonDeleteFromBookmark();
 
+    String TO_BUTTON_CLOSE_PLAYER = "//*[@id='vpl_close']//div";
+
+    @FindBy(TO_BUTTON_CLOSE_PLAYER)
+    AtlasWebElement closePlayer();
+
 }

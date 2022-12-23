@@ -12,4 +12,9 @@ public interface BookmarksMenuPanel extends AtlasWebElement {
     @FindBy(TO_BOOKMARKS)
     AtlasWebElement bookmarks(@Param("data") String data);
 
+    String TO_ALL_BOOKMARKS = "//div[@class='nav-side_i-w']/a[@href='/bookmarks']";
+
+    @FindBy(TO_ALL_BOOKMARKS)
+    AtlasWebElement allBookmarks();
+
 }
