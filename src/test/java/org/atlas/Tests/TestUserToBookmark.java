@@ -50,7 +50,7 @@ public class TestUserToBookmark extends BaseTest {
 
     @BeforeEach
     void logInAndCheck() {
-        BookmarksPageSteps bookmarksPageSteps = loginSteps.loginIn(testBot)
+        bookmarksPageSteps = loginSteps.loginIn(testBot)
             .goToBookmarks()
             .goToUsersBookmarks();
         assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
@@ -58,10 +58,11 @@ public class TestUserToBookmark extends BaseTest {
 
     @AfterEach
     void clean() {
-        if (!bookmarksPageSteps.checkBookmarksIsEmpty()) {
+        if (bookmarksPageSteps.getFirstUser().isEnabled()) {
             bookmarksPageSteps.goToUserPageFromBookmarks(userInfo)
                 .deleteUserToBookmark()
-                .goToBookmarks();
+                .goToBookmarks()
+                .goToUsersBookmarks();
         }
         assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
     }

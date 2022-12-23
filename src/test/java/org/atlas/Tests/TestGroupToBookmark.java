@@ -58,10 +58,11 @@ public class TestGroupToBookmark extends BaseTest {
 
     @AfterEach
     void cleanAfter() {
-        if (!bookmarksPageSteps.checkBookmarksIsEmpty()) {
+        if (bookmarksPageSteps.getFirstGroup().isEnabled()) {
             bookmarksPageSteps.goToGroupPageFromBookmarks()
                 .deleteGroupFromBookmark()
-                .goToBookmarks();
+                .goToBookmarks()
+                .goToGroupsBookmarks();
         }
         assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
     }
