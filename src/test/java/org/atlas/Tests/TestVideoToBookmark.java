@@ -4,9 +4,7 @@ import com.google.inject.Inject;
 import org.atlas.Steps.BookmarksPageSteps;
 import org.atlas.Steps.LoginPageSteps;
 import org.jetbrains.annotations.NotNull;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -33,8 +31,7 @@ public class TestVideoToBookmark extends BaseTest {
     public void doTest() {
         StringBuilder href = new StringBuilder();
         StringBuilder href2 = new StringBuilder();
-        bookmarksPageSteps = loginSteps.loginIn(testBot)
-            .goToVideo()
+        bookmarksPageSteps.goToVideoPage()
             .getHrefFirstVideo(href)
             .addFirstVideoToBookmark()
             .goToBookmarks()
@@ -44,6 +41,21 @@ public class TestVideoToBookmark extends BaseTest {
             href2 = new StringBuilder(href2.toString().replace("live", "video"));
         }
         assertThat("Не удалось добавить видео в закладки", href.toString(), equalTo(href2.toString()));
-        bookmarksPageSteps.deleteFirstVideoFromBookmark();
     }
+
+    @BeforeEach
+    void logInAndCheck() {
+        bookmarksPageSteps = loginSteps.loginIn(testBot)
+                .goToBookmarks()
+                .goToVideoBookmarks();
+        //assertTrue(isEmpty);
+    }
+
+    @AfterEach
+    void cleanAfter() {
+        //if (!isEmpty) {
+        bookmarksPageSteps.deleteFirstVideoFromBookmark();
+        //}
+    }
+
 }

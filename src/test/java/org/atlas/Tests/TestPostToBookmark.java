@@ -4,9 +4,7 @@ import com.google.inject.Inject;
 import org.atlas.Steps.BookmarksPageSteps;
 import org.atlas.Steps.LoginPageSteps;
 import org.jetbrains.annotations.NotNull;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -34,7 +32,7 @@ public class TestPostToBookmark extends BaseTest {
     public void doTest() {
         StringBuilder id1 = new StringBuilder();
         StringBuilder id2 = new StringBuilder();
-        bookmarksPageSteps = loginSteps.loginIn(testBot)
+        bookmarksPageSteps.goToFeedPage()
             .addFirstPostToBookmark()
             .getIdOfFirstPost(id1)
             .goToBookmarks()
@@ -44,7 +42,21 @@ public class TestPostToBookmark extends BaseTest {
             .delete(id1.indexOf(","), id1.length());
         id2.delete(0, id2.lastIndexOf(",") + 1);
         assertThat("Не удалось добавить пост в закладки", id1.toString(), equalTo(id2.toString()));
+    }
+
+    @BeforeEach
+    void logInAndCheck() {
+        bookmarksPageSteps = loginSteps.loginIn(testBot)
+                .goToBookmarks()
+                .goToPostBookmarks();
+        //assertTrue(isEmpty);
+    }
+
+    @AfterEach
+    void cleanAfter() {
+        //if (!isEmpty) {
         bookmarksPageSteps.deleteFirstPostFromBookmark();
+        //}
     }
 
 }
