@@ -1,6 +1,7 @@
 package org.atlas.Steps;
 
 import org.atlas.PagesFiles.Pages.BookmarksPage;
+import org.atlas.PagesFiles.Pages.Elements.Feed.Post;
 import org.atlas.PagesFiles.Pages.Elements.Video.Video;
 import org.atlas.TestResources.UserInfo;
 import org.atlas.Tests.BaseTest;
@@ -90,6 +91,10 @@ public class BookmarksPageSteps {
         return this;
     }
 
+    public Post getFirstPost() {
+        return bookmarksPage.posts().firstPost();
+    }
+
     public BookmarksPageSteps deleteFirstPostFromBookmark() {
         bookmarksPage.posts().firstPost().descriptionPost().click();
         bookmarksPage.postTopic().buttonForDeleteBookmark().click();
@@ -112,6 +117,11 @@ public class BookmarksPageSteps {
 
     public BookmarksPageSteps closePlayer() {
         bookmarksPage.mediaPlayer().closePlayer().click();
+        return this;
+    }
+
+    public BookmarksPageSteps closePostTopic() {
+        bookmarksPage.postTopic().closePost().click();
         return this;
     }
 }
