@@ -2,9 +2,7 @@ package org.atlas.Tests;
 
 import com.google.inject.Inject;
 import org.atlas.Steps.BookmarksPageSteps;
-import org.atlas.Steps.FeedPageSteps;
 import org.atlas.Steps.LoginPageSteps;
-import org.atlas.Steps.UserPageSteps;
 import org.atlas.TestResources.UserInfo;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.*;
@@ -26,6 +24,10 @@ public class TestUserToBookmark extends BaseTest {
 
     @Inject
     @NotNull
+    private BookmarksPageSteps bookmarksPageSteps;
+
+    @Inject
+    @NotNull
     private UserInfo userInfo;
 
     @DisplayName("Добавление человека в закладки")
@@ -34,8 +36,8 @@ public class TestUserToBookmark extends BaseTest {
     public void doTest() {
         StringBuilder addedId = new StringBuilder();
 
-        final FeedPageSteps feedPageSteps = new FeedPageSteps(this);
-        feedPageSteps.findUser(userInfo)
+        bookmarksPageSteps.goToFeedPage()
+            .findUser(userInfo)
             .addUserToBookmark()
             .goToBookmarks()
             .goToUsersBookmarks()
@@ -56,11 +58,8 @@ public class TestUserToBookmark extends BaseTest {
 
     @AfterEach
     void clean() {
-        BookmarksPageSteps bookmarksPageSteps = new BookmarksPageSteps(this);
-        bookmarksPageSteps.goToUsersBookmarks();
-        UserPageSteps userPageSteps = bookmarksPageSteps.goToUserPageFromBookmarks(userInfo);
         //if (!isEmpty) {
-        userPageSteps.deleteUserToBookmark();
+        bookmarksPageSteps.goToUserPageFromBookmarks(userInfo).deleteUserToBookmark();
         //}
     }
 }
