@@ -59,7 +59,10 @@ public class TestUserToBookmark extends BaseTest {
     @AfterEach
     void clean() {
         if (!bookmarksPageSteps.checkBookmarksIsEmpty()) {
-            bookmarksPageSteps.goToUserPageFromBookmarks(userInfo).deleteUserToBookmark();
+            bookmarksPageSteps.goToUserPageFromBookmarks(userInfo)
+                .deleteUserToBookmark()
+                .goToBookmarks();
         }
+        assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
     }
 }
