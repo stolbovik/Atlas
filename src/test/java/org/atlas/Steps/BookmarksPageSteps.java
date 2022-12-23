@@ -84,4 +84,9 @@ public class BookmarksPageSteps {
         bookmarksPage.postTopic().buttonForDeleteBookmark().click();
         return this;
     }
+
+    public FeedPageSteps goToFeedPage() {
+        bookmarksPage.toolbar().logo().click();
+        return new FeedPageSteps(test);
+    }
 }
