@@ -119,4 +119,22 @@ public class BookmarksPageSteps {
         bookmarksPage.postTopic().closePost().click();
         return this;
     }
+
+    public boolean checkEmptyVideoBookmark() {
+        try {
+            this.getFirstVideo().isEnabled();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkEmptyPostBookmark() {
+        try {
+            this.getFirstPost().isEnabled();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return true;
+        }
+        return false;
+    }
 }
