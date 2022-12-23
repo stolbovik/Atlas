@@ -1,7 +1,7 @@
 package org.atlas.Config;
 
 import com.google.inject.AbstractModule;
-import org.atlas.Steps.*;
+import org.atlas.Steps.LoginPageSteps;
 import org.atlas.TestResources.UserInfo;
 import org.atlas.Tests.BaseTest;
 import org.jetbrains.annotations.NotNull;
@@ -20,11 +20,6 @@ public class GuiceModule extends AbstractModule {
     @Override
     protected void configure() {
         bind(LoginPageSteps.class).toInstance(new LoginPageSteps(baseTest));
-        bind(BookmarksPageSteps.class).toInstance(new BookmarksPageSteps(baseTest));
-        bind(VideoPageSteps.class).toInstance(new VideoPageSteps(baseTest));
-        bind(FeedPageSteps.class).toInstance(new FeedPageSteps(baseTest));
-        bind(UserPageSteps.class).toInstance(new UserPageSteps(baseTest, ID));
-        bind(GroupPageSteps.class).toInstance(new GroupPageSteps(baseTest));
         bind(UserInfo.class).toInstance(new UserInfo(NAME, ID));
     }
 }
