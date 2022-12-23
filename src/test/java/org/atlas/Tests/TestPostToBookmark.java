@@ -55,10 +55,11 @@ public class TestPostToBookmark extends BaseTest {
 
     @AfterEach
     void cleanAfter() {
+        bookmarksPageSteps.goToFeedPage().goToBookmarks().goToPostBookmarks();
         if (bookmarksPageSteps.getFirstPost().isEnabled()) {
             bookmarksPageSteps.deleteFirstPostFromBookmark();
+            bookmarksPageSteps.closePostTopic().goToPostBookmarks();
         }
-        bookmarksPageSteps.closePostTopic().goToPostBookmarks();
         assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
     }
 
