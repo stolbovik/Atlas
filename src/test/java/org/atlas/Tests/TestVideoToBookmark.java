@@ -56,7 +56,7 @@ public class TestVideoToBookmark extends BaseTest {
     @AfterEach
     void cleanAfter() {
         bookmarksPageSteps.goToFeedPage().goToBookmarks().goToVideoBookmarks();
-        if (!bookmarksPageSteps.checkEmptyPostBookmark()) {
+        if (!bookmarksPageSteps.checkEmptyVideoBookmark()) {
             bookmarksPageSteps.deleteFirstVideoFromBookmark();
             bookmarksPageSteps.closePlayer().goToVideoBookmarks();
         }
