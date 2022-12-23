@@ -29,11 +29,6 @@ public class BookmarksPageSteps {
         return this;
     }
 
-    public BookmarksPageSteps goToAllBookmarks() {
-        bookmarksPage.bookmarksMenuPanel().allBookmarks().click();
-        return this;
-    }
-
     public BookmarksPageSteps getHrefFirstVideo(@NotNull final StringBuilder href) {
         href.append(bookmarksPage.videos().firstVideo().getAttribute("href"));
         return this;

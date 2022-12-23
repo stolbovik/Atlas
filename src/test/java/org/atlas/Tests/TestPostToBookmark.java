@@ -48,7 +48,8 @@ public class TestPostToBookmark extends BaseTest {
     @BeforeEach
     void logInAndCheck() {
         bookmarksPageSteps = loginSteps.loginIn(testBot)
-                .goToBookmarks();
+                .goToBookmarks()
+                .goToPostBookmarks();
         assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
     }
 
@@ -57,7 +58,7 @@ public class TestPostToBookmark extends BaseTest {
         if (bookmarksPageSteps.getFirstPost().isEnabled()) {
             bookmarksPageSteps.deleteFirstPostFromBookmark();
         }
-        bookmarksPageSteps.closePostTopic().goToAllBookmarks();
+        bookmarksPageSteps.closePostTopic().goToPostBookmarks();
         assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
     }
 

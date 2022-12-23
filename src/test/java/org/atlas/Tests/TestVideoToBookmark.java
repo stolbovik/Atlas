@@ -47,7 +47,8 @@ public class TestVideoToBookmark extends BaseTest {
     @BeforeEach
     void logInAndCheck() {
         bookmarksPageSteps = loginSteps.loginIn(testBot)
-                .goToBookmarks();
+                .goToBookmarks()
+                .goToVideoBookmarks();
         assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
     }
 
@@ -56,7 +57,7 @@ public class TestVideoToBookmark extends BaseTest {
         if (bookmarksPageSteps.getFirstVideo().isEnabled()) {
             bookmarksPageSteps.deleteFirstVideoFromBookmark();
         }
-        bookmarksPageSteps.closePlayer().goToAllBookmarks();
+        bookmarksPageSteps.closePlayer().goToVideoBookmarks();
         assertTrue(bookmarksPageSteps.checkBookmarksIsEmpty());
     }
 
