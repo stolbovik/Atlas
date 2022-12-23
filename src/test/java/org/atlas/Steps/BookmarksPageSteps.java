@@ -11,13 +11,9 @@ public class BookmarksPageSteps {
     private final BaseTest test;
     @NotNull
     private final BookmarksPage bookmarksPage;
-    @NotNull
     private final String MOVIES = "movies";
-    @NotNull
     private final String GROUPS = "groups";
-    @NotNull
     private final String TOPICS = "topics";
-    @NotNull
     private final String USERS = "users";
 
     public BookmarksPageSteps(@NotNull final BaseTest test) {

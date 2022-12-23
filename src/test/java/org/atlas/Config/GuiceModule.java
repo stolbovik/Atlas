@@ -11,9 +11,7 @@ import org.jetbrains.annotations.NotNull;
 public class GuiceModule extends AbstractModule {
     @NotNull
     private final BaseTest baseTest;
-    @NotNull
     private final String NAME = "technoPol5 technoPol5";
-    @NotNull
     private final String ID = "572238181118";
 
     public GuiceModule(@NotNull final BaseTest baseTest) {

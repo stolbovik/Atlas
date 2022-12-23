@@ -19,13 +19,9 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class BaseTest {
-    @NotNull
     static final private String LOGIN_URL = "https://ok.ru/";
-    @NotNull
     static final private String TEST_BOT_LOGIN = "technoPol4";
-    @NotNull
     static final private String TEST_BOT_PASSWORD = "technoPolis2022";
-    @NotNull
     static final private String TEST_BOT_ID = "585556286938";
     static protected OkSite site;
     static protected WebDriver driver;
