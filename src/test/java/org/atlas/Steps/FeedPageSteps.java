@@ -13,9 +13,7 @@ public class FeedPageSteps {
     private final BaseTest test;
     @NotNull
     private final FeedPage feedPage;
-    @NotNull
     private final String VIDEO = "Видео";
-    @NotNull
     private final String GROUPS = "Группы";
 
     public FeedPageSteps(@NotNull final BaseTest test) {

@@ -12,11 +12,8 @@ public class LoginPageSteps {
     @NotNull
     private final LoginPage loginPage;
     private TestBot testBot;
-    @NotNull
     private final String EMAIL_INPUT = "st.email";
-    @NotNull
     private final String PASSWORD_INPUT = "st.password";
-    @NotNull
     private final String SIGN_IN_BUTTON = "login-form-actions";
 
     public LoginPageSteps(@NotNull final BaseTest test) {

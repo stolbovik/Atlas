@@ -19,7 +19,6 @@ import static org.hamcrest.Matchers.equalTo;
 @SuppressWarnings("FieldCanBeLocal")
 @DisplayName("Тест для добавления группы в закладки")
 public class TestGroupToBookmark extends BaseTest {
-    @NotNull
     private final String GROUP_NAME = "Одноклассники. Всё ОК!";
     @Inject
     @NotNull
