@@ -11,4 +11,10 @@ public interface PostTopic extends AtlasWebElement {
     @FindBy(TO_BUTTON_FOR_DELETE_BOOKMARK)
     AtlasWebElement buttonForDeleteBookmark();
 
+
+    String TO_BUTTON_CLOSE = "//div[@class='ic media-layer_close_ico']";
+
+    @FindBy(TO_BUTTON_CLOSE)
+    AtlasWebElement closePost();
+
 }
