@@ -2,8 +2,6 @@ package org.atlas.Tests;
 
 import com.google.inject.Inject;
 import org.atlas.Steps.BookmarksPageSteps;
-import org.atlas.Steps.FeedPageSteps;
-import org.atlas.Steps.GroupPageSteps;
 import org.atlas.Steps.LoginPageSteps;
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.*;
@@ -26,6 +24,10 @@ public class TestGroupToBookmark extends BaseTest {
     @NotNull
     private LoginPageSteps loginSteps;
 
+    @Inject
+    @NotNull
+    private BookmarksPageSteps bookmarksPageSteps;
+
     @DisplayName("Добавление группы в закладки")
     @Tag("group_bookmark")
     @Test
@@ -33,8 +35,8 @@ public class TestGroupToBookmark extends BaseTest {
         StringBuilder addedGroupId = new StringBuilder();
         StringBuilder addingGroupId = new StringBuilder();
 
-        final FeedPageSteps feedPageSteps = new FeedPageSteps(this);
-        feedPageSteps.goToGroups()
+        bookmarksPageSteps.goToFeedPage()
+            .goToGroups()
             .chooseGroup(GROUP_NAME, addingGroupId)
             .addGroupToBookmark()
             .goToBookmarks()
@@ -47,20 +49,16 @@ public class TestGroupToBookmark extends BaseTest {
 
     @BeforeEach
     void logInAndCheck() {
-        BookmarksPageSteps bookmarksPageSteps = loginSteps.loginIn(testBot)
+        bookmarksPageSteps = loginSteps.loginIn(testBot)
             .goToBookmarks()
             .goToGroupsBookmarks();
         //assertThat(isEmpty, true);
-        bookmarksPageSteps.goToFeedPage();
     }
 
     @AfterEach
     void cleanAfter() {
-        BookmarksPageSteps bookmarksPageSteps = new BookmarksPageSteps(this);
-        bookmarksPageSteps.goToGroupsBookmarks();
-        GroupPageSteps groupPageSteps = bookmarksPageSteps.goToGroupPageFromBookmarks();
         //if (!isEmpty) {
-        groupPageSteps.deleteGroupFromBookmark();
+        bookmarksPageSteps.goToGroupPageFromBookmarks().deleteGroupFromBookmark();
         //}
     }
 }
